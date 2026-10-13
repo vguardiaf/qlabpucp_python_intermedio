@@ -63,3 +63,22 @@ tarea_1/
 - `requirements.txt` está completo y el dashboard abre y clasifica en vivo.
 - No hay archivos de más de 100 MB en el repo.
 - Los 3 Issues están cerrados.
+
+## Formato y canal de entrega
+
+Tarea 1 – Individual
+Medio: [La República]
+Estudiante: Nombre Completo (@usuario_github)
+Dashboard en vivo: https://...streamlit.app  (o indicar ejecución local comprobada)
+Carpeta del trabajo: https://github.com/.../tarea_1
+Resultados Test: F1 Macro: 0.xx | Zero-shot: 0.xx | Acuerdo LLM-Humano: xx/20
+
+Note
+
+¿De dónde obtienen estos resultados?
+Se copian directamente de las salidas impresas en su notebook 02_clasificacion.ipynb:
+
+    F1 Macro: Métrica obtenida al evaluar el modelo entrenado sobre el conjunto de test (Paso 5).
+    Zero-shot: Métrica F1 del modelo base sin entrenar (Paso 1).
+    Acuerdo LLM-Humano: Número de aciertos en la auditoría manual de 20 casos (Paso 2).
+
