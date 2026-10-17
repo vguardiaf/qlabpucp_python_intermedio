@@ -1,0 +1,11 @@
+# Respaldo crudo del scraping (solo local, no forma parte de la entrega)
+datos/raw/
+
+# Pesos pesados del modelo
+*.safetensors
+*.bin
+checkpoint-*/
+
+# Python / Jupyter
+__pycache__/
+.ipynb_checkpoints/
