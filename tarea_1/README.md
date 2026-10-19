@@ -28,7 +28,7 @@ Se descartaron las secciones que no encajan en las 4 categorías (`ecdata`, `opi
 | Fine-tuning | BETO (`dccuchile/bert-base-spanish-wwm-cased`), 3 épocas, batch 16, mejor época por F1 macro | F1 macro val 0.84 |
 | **Evaluación en test** | 58 titulares reservados | **Accuracy 0.86 · F1 macro 0.82** |
 
-## Hallazgos analíticos
+## Hallazgos
 
 1. Medidos contra la sección original del diario sobre el mismo test, el modelo fine-tuned obtiene F1 macro 0.80 y el LLM que generó sus etiquetas, 0.77. Al aprender de cientos de ejemplos, BETO generaliza los patrones dominantes y corrige parte del ruido de las etiquetas individuales del LLM, con ~14 veces menos parámetros.
 2. **Economía es la categoría más difícil.** Tiene el F1 más bajo en test (0.62, recall 0.50), aunque ciencia y tecnología alcanza 0.94. Economía comparte actores y vocabulario con política (ministros, MEF, BCR, Congreso, leyes mineras), y el LLM ya asignaba solo el 14.9% del dataset a economía cuando la sección original tiene 26%. Ejemplo: *"Julio Velarde: 'En el BCR hay mucha gente que puede sustituirme, pero no cualquiera tampoco'"* es económico por el BCR, pero habla de una designación, y el modelo lo clasifica como política.
