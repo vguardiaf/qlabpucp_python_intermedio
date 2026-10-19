@@ -4,7 +4,7 @@
 
 ¿Pueden convertir titulares peruanos en un clasificador de noticias?
 
-Extraer noticias reales de **La República**, etiquetarlas de forma semi-supervisada con un LLM, entrenarlas en un Transformer ligero (DistilBERT / BETO) y desplegar un dashboard en Streamlit que prediga la categoría de un titular y su nivel de confianza.
+Extraer noticias reales de **El Comercio**, etiquetarlas de forma semi-supervisada con un LLM, entrenarlas en un Transformer ligero (DistilBERT / BETO) y desplegar un dashboard en Streamlit que prediga la categoría de un titular y su nivel de confianza.
 
 ## Precisiones
 
