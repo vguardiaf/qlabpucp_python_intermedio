@@ -1,0 +1,28 @@
+# Python 3.12 · Versiones probadas en local (Windows, conda)
+# PyTorch CPU: más liviano y suficiente para la app y para entrenar BETO con ~270 titulares.
+# --find-links solo aporta wheels de torch, así el resto de paquetes se resuelve desde PyPI
+--find-links https://download.pytorch.org/whl/torch/
+
+# Datos y visualización
+pandas==3.0.6
+numpy==2.5.4
+plotly==7.1.0
+matplotlib==3.11.2
+seaborn==0.13.2
+
+# Scraping (01_recoleccion.ipynb)
+requests==2.34.2
+beautifulsoup4==4.15.0
+
+# Modelado (02_clasificacion.ipynb)
+torch==2.6.0+cpu
+transformers==5.20.1
+accelerate==1.15.0
+scikit-learn==1.9.1
+tqdm==4.70.1
+
+# Dashboard (app.py)
+streamlit==1.66.0
+
+# Ejecutar notebooks en VS Code / Jupyter
+ipykernel==7.3.0
