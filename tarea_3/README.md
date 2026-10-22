@@ -2,9 +2,7 @@
 
 Retos **E (¿año récord?)**, **F (clima y riesgo)** y **A (área quemada con dNBR)** de la tarea de
 Ciencia de Datos con Python.
-Dashboard: abrir `docs/index.html` o la versión publicada en
-<https://vguardiaf.github.io/qlabpucp_python_intermedio/tarea_3/docs/>
-(GitHub Pages activado en Settings → Pages → rama `main`, carpeta `/ (root)`).
+Dashboard: https://claude.ai/artifact/X8oDTiZ6w59yggsH36ptFu
 
 ## Pregunta
 
