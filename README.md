@@ -7,7 +7,7 @@ Cada tarea está en su propia carpeta y tiene su propio README, entorno y `.giti
 
 | Tarea | Pregunta | Herramientas | Resultado principal |
 |---|---|---|---|
-| [Tarea 1](tarea_1/) | ¿Se pueden convertir titulares peruanos en un clasificador de noticias? | Scraping (RSS y HTML), etiquetado con LLM local, fine-tuning de BETO, Streamlit | 383 titulares de El Comercio · F1 macro **0.82** en test (zero-shot: 0.64) |
+| [Tarea 1](tarea_1/) | ¿Se pueden convertir titulares peruanos en un clasificador de noticias? | Scraping (RSS y HTML), etiquetado con LLM local, fine-tuning de BETO, Streamlit | 383 titulares de El Comercio · F1 macro **0.82** en test (zero-shot: 0.64) | https://clasificador-noticias-peru.streamlit.app/ |
 | [Tarea 3](tarea_3/) | ¿Es 2026 un año récord de incendios en el Perú? | Focos VIIRS (FIRMS e INPE), geopandas, rasterio, WorldCover, Sentinel-2 (dNBR), Open-Meteo, d3 | Octubre 2026 **+106 %** (récord desde 2012), aunque la temporada va −16 % · [Dashboard](https://claude.ai/artifact/X8oDTiZ6w59yggsH36ptFu) |
 
 ## Tarea 1 · Noticias peruanas: del titular al clasificador
@@ -57,7 +57,7 @@ python src/01_descargar.py   # y así hasta 06_dashboard.py (~20 min)
 
 ## Uso de IA
 
-Usé Claude como apoyo para escribir código y redactar. Revisé y validé cada resultado antes de aceptarlo.
+Usé Claude como apoyo para escribir código. Revisé y validé cada resultado antes de aceptarlo.
 
 ## Licencia
 
