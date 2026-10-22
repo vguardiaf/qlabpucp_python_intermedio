@@ -1,0 +1,14 @@
+name: geo
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - geopandas
+  - rasterio
+  - pandas
+  - numpy
+  - requests
+  - matplotlib
+  - scipy
+  - shapely
+  - ipykernel

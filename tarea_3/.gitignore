@@ -1,0 +1,7 @@
+# Datos pesados: se regeneran con src/01_descargar.py y src/02_limpiar.py
+data/raw/
+data/processed/focos_limpios.csv.gz
+data/processed/dnbr/
+
+__pycache__/
+.ipynb_checkpoints/
