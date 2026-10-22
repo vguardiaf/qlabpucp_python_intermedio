@@ -1,84 +1,64 @@
-# Tarea 1 - Noticias peruanas: del titular al clasificador
+# Python intermedio · Q-Lab PUCP
 
-## Pregunta del trabajo
+Tareas del curso **Ciencia de Datos con Python** (Prof. Alexander Quispe).
+Autor: Víctor Guardia ([@vguardiaf](https://github.com/vguardiaf)).
 
-¿Pueden convertir titulares peruanos en un clasificador de noticias?
+Cada tarea está en su propia carpeta y tiene su propio README, entorno y `.gitignore`.
 
-Extraer noticias reales de **El Comercio**, etiquetarlas de forma semi-supervisada con un LLM, entrenarlas en un Transformer ligero (DistilBERT / BETO) y desplegar un dashboard en Streamlit que prediga la categoría de un titular y su nivel de confianza.
+| Tarea | Pregunta | Herramientas | Resultado principal |
+|---|---|---|---|
+| [Tarea 1](tarea_1/) | ¿Se pueden convertir titulares peruanos en un clasificador de noticias? | Scraping (RSS y HTML), etiquetado con LLM local, fine-tuning de BETO, Streamlit | 383 titulares de El Comercio · F1 macro **0.82** en test (zero-shot: 0.64) |
+| [Tarea 3](tarea_3/) | ¿Es 2026 un año récord de incendios en el Perú? | Focos VIIRS (FIRMS e INPE), geopandas, rasterio, WorldCover, Sentinel-2 (dNBR), Open-Meteo, d3 | Octubre 2026 **+106 %** (récord desde 2012), aunque la temporada va −16 % · [Dashboard](https://claude.ai/artifact/X8oDTiZ6w59yggsH36ptFu) |
 
-## Precisiones
-
-- Categorías fijas: `politica`, `economia`, `deportes`, `ciencia_tecnologia`. Lo que no encaja se descarta y se reporta en el notebook.
-- `datos/noticias.csv` tiene **7 columnas**: `titular`, `bajada`, `medio`, `seccion_original`, `url`, `fecha`, `etiqueta`, y **350+ filas reales** con URLs funcionales.
-- Scraping respetuoso: se revisa `robots.txt`, `User-Agent` descriptivo, pausas de 1-2 s y máximo 1 reintento. Si hay bloqueo, se usa RSS y se documenta.
-- Métricas (F1 y matriz de confusión) **solo sobre el conjunto de test**.
-- Los pesos pesados (`.safetensors`, `.bin`, `checkpoint-*/`) están en `.gitignore`.
-
-## Estructura
+## Tarea 1 · Noticias peruanas: del titular al clasificador
 
 ```
 tarea_1/
-├── 01_recoleccion.ipynb
-├── 02_clasificacion.ipynb
-├── app.py
+├── 01_recoleccion.ipynb     # scraping de El Comercio, limpieza y EDA
+├── 02_clasificacion.ipynb   # zero-shot, etiquetado con Qwen2.5, split y fine-tuning de BETO
+├── app.py                   # dashboard Streamlit: clasifica un titular y da su confianza
 ├── requirements.txt
-├── README.md
-├── .gitignore
-├── datos/
-│   ├── noticias.csv
-│   └── etiquetas_llm.csv
-└── modelo/
+└── datos/                   # noticias.csv, etiquetas_llm.csv, auditoria_humana.csv, train/val/test.csv
 ```
 
-## Issues como bitácora
+Los pesos del modelo (`modelo/`) no se suben al repo: se regeneran con `02_clasificacion.ipynb`.
 
-- Hay un Issue por parte:
-  - **T1 – Parte 1:** Recolección y Limpieza
-  - **T1 – Parte 2:** Modelado y Clasificación
-  - **T1 – Parte 3:** Dashboard y Despliegue
-- En los Issues se anotan avances, bloqueos y decisiones. **No se escribe código en los Issues.**
-- Cuando la parte está terminada y revisada, se cierra el Issue.
+```
+cd tarea_1
+pip install -r requirements.txt
+streamlit run app.py
+```
 
-## Orden de trabajo
+## Tarea 3 · Incendios en el Perú 2026 (retos A, E y F)
 
-1. **Parte 1: Recolección** (`01_recoleccion.ipynb`). Scraping, limpieza y EDA. Produce `datos/noticias.csv`.
-2. **Parte 2: Clasificación** (`02_clasificacion.ipynb`). Empieza cuando existe el CSV. Etiquetado con LLM (`datos/etiquetas_llm.csv`), split train/test, fine-tuning y evaluación.
-3. **Parte 3: Dashboard** (`app.py` + `README.md`). Empieza cuando hay un modelo entrenado.
+Compara la temporada 2026 con las de 2012–2025 usando solo S-NPP. Se queda solo con los focos que son
+incendio y descarta fuentes fijas, quemas pequeñas o recurrentes y focos sin vegetación. Mide el área quemada
+con Sentinel-2 y estima el riesgo de la semana con el pronóstico del clima.
 
-## Commits
+```
+tarea_3/
+├── src/01_descargar.py … 06_dashboard.py   # pipeline en 6 pasos
+├── src/plantilla_dashboard.html            # dashboard d3 (claro/oscuro)
+├── data/processed/                          # resultados livianos (JSON, CSV, GeoJSON)
+├── docs/index.html                          # dashboard como página HTML completa
+├── dashboard/fragmento.html                 # misma página, versión artifact
+└── environment.yml                          # entorno conda "geo"
+```
 
-- Commits **descriptivos y frecuentes** a lo largo de los días, no todo el último día (por ejemplo: `scrape: 400 titulares LR`, `train: distilbert 3 epochs F1 0.81`).
-- Antes de empezar a trabajar: **Pull / Fetch**.
+Los datos crudos (`data/raw/`), los focos limpios y los GeoTIFF de dNBR no se suben al repo: se regeneran
+con los pasos 1, 2 y 5.
+
+```
+cd tarea_3
+conda env create -f environment.yml
+conda activate geo
+python src/01_descargar.py   # y así hasta 06_dashboard.py (~20 min)
+```
 
 ## Uso de IA
 
-- Uso de Claude como apoyo, sin aceptar nada sin revisar.
+Usé Claude como apoyo para escribir código y redactar. Revisé y validé cada resultado antes de aceptarlo.
 
-## Revisión antes de entregar
+## Licencia
 
-- Se verificó que el CSV tenga las 7 columnas y que las URLs funcionen.
-- Se verificó que las métricas se calculen sobre test y no sobre train.
-- Se comprobó que `requirements.txt` esté completo y que el dashboard clasifique titulares nuevos en vivo.
-- Los 2 notebooks corren de principio a fin y están **ejecutados** (salidas, métricas y gráficos visibles en GitHub).
-- `requirements.txt` está completo y el dashboard abre y clasifica en vivo.
-- No hay archivos de más de 100 MB en el repo.
-- Los 3 Issues están cerrados.
-
-## Formato y canal de entrega
-
-Tarea 1 – Individual
-Medio: [La República]
-Estudiante: Nombre Completo (@usuario_github)
-Dashboard en vivo: https://...streamlit.app  (o indicar ejecución local comprobada)
-Carpeta del trabajo: https://github.com/.../tarea_1
-Resultados Test: F1 Macro: 0.xx | Zero-shot: 0.xx | Acuerdo LLM-Humano: xx/20
-
-Note
-
-¿De dónde obtienen estos resultados?
-Se copian directamente de las salidas impresas en su notebook 02_clasificacion.ipynb:
-
-    F1 Macro: Métrica obtenida al evaluar el modelo entrenado sobre el conjunto de test (Paso 5).
-    Zero-shot: Métrica F1 del modelo base sin entrenar (Paso 1).
-    Acuerdo LLM-Humano: Número de aciertos en la auditoría manual de 20 casos (Paso 2).
-
+[MIT](LICENSE)
