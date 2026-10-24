@@ -9,6 +9,7 @@ Cada tarea está en su propia carpeta y tiene su propio README, entorno y `.giti
 |---|---|---|---|
 | [Tarea 1](tarea_1/) | ¿Se pueden convertir titulares peruanos en un clasificador de noticias? | Scraping (RSS y HTML), etiquetado con LLM local, fine-tuning de BETO, Streamlit | 383 titulares de El Comercio · F1 macro **0.82** en test (zero-shot: 0.64) [App](https://clasificador-noticias-peru.streamlit.app/) |
 | [Tarea 3](tarea_3/) | ¿Es 2026 un año récord de incendios en el Perú? | Focos VIIRS (FIRMS e INPE), geopandas, rasterio, WorldCover, Sentinel-2 (dNBR), Open-Meteo, d3 | Octubre 2026 **+106 %** (récord desde 2012), aunque la temporada va −16 % · [Dashboard](https://claude.ai/artifact/X8oDTiZ6w59yggsH36ptFu) |
+| [Tarea 4](tarea_4/) | ¿Se pueden contar los hallazgos de la tarea 3 en un reel con modelos abiertos? | Qwen3.8 (guion), Qwen3-TTS (voz clonada), Whisper (subtítulos), MusicGen (música), Playwright, Pillow, ffmpeg | Reel vertical de **45 s** narrado con mi voz · [reel.mp4](tarea_4/reel/reel.mp4) |
 
 ## Tarea 1 · Noticias peruanas: del titular al clasificador
 
@@ -54,6 +55,26 @@ conda env create -f environment.yml
 conda activate geo
 python src/01_descargar.py   # y así hasta 06_dashboard.py (~20 min)
 ```
+
+## Tarea 4 · Del tablero al reel
+
+Convierte los hallazgos de la tarea 3 en un reel de 45 s para redes. Hay una persona revisando en el medio:
+el guion de Qwen se corrigió a mano contra la fuente antes de narrarlo.
+
+1. **Guion**: Qwen3.8 (chat.qwen.ai) resume los hallazgos en 6 escenas, cada una con frase, cifra y etiqueta.
+2. **Revisión**: se corrigió una frase falsa ("Moquegua triplica su máximo": el +337 % es contra el promedio).
+3. **Imágenes**: capturas del dashboard que acompañan cada escena (gráficos, mapa del sur andino, Sentinel-2).
+4. **Voz**: Qwen3-TTS 1.7B clona mi voz con 13 s de grabación. Whisper vuelve a escuchar cada escena.
+5. **Video**: subtítulos palabra por palabra, música de MusicGen (tensa → calma cuando llega la lluvia),
+   −14 LUFS, 1080×1920 H.264 + AAC.
+
+```
+tarea_4/
+├── guion/guion.json   # guion de Qwen corregido, con la lista de correcciones
+└── reel/              # reel.mp4, post.md
+```
+
+El reel declara la voz y la música generadas con IA, en el video y en `post.md`.
 
 ## Uso de IA
 
