@@ -1,0 +1,44 @@
+{
+  "titulo": "Incendios: octubre intenso, temporada no récord",
+  "escenas": [
+    {
+      "frase": "Octubre de dos mil veintiséis es el más intenso desde dos mil doce: más del doble de focos de incendio.",
+      "cifra": "+106 %",
+      "etiqueta": "Octubre más intenso"
+    },
+    {
+      "frase": "La temporada completa, desde julio, no es récord: está dieciseis por ciento bajo el promedio.",
+      "cifra": "−16,3 %",
+      "etiqueta": "Temporada no récord"
+    },
+    {
+      "frase": "El récord está en el sur andino: Moquegua triplica su máximo, Apurímac y Arequipa suben fuerte.",
+      "cifra": "+337 %",
+      "etiqueta": "Récord en sur andino"
+    },
+    {
+      "frase": "El satélite confirma el mayor incendio medido: en Arequipa quemó unas mil quinientas hectáreas en cinco días.",
+      "cifra": "1 562 ha",
+      "etiqueta": "Sentinel-2 confirma"
+    },
+    {
+      "frase": "La lluvia baja el riesgo esta semana: ciento ochenta de ciento ochenta y dos incendios con riesgo bajo.",
+      "cifra": "180 de 182",
+      "etiqueta": "Lluvia baja riesgo"
+    },
+    {
+      "frase": "Mira el mapa interactivo en el enlace de la bio y revisa qué incendios siguen activos esta semana.",
+      "cifra": "",
+      "etiqueta": "Mapa interactivo"
+    }
+  ],
+  "texto_post": "Octubre 2026 fue el más intenso desde 2012, pero la temporada completa no es récord.\nEl sur andino concentra los mayores aumentos y la lluvia baja el riesgo esta semana.\nMapa interactivo: https://claude.ai/artifact/X8oDTiZ6w59yggsH36ptFu",
+  "hashtags": [
+    "#incendios",
+    "#Perú",
+    "#satélite",
+    "#clima",
+    "#mapa",
+    "#noticias"
+  ]
+}

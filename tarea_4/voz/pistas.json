@@ -1,0 +1,55 @@
+{
+  "modelo": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "referencia_texto": "La enfermedad de Alzheimer es una condición que afecta la memoria y otras funciones del cerebro y que actualmente no tiene cura. Una forma de mejorar la detección temprana es",
+  "duracion_total_seg": 40.9,
+  "pistas": [
+    {
+      "escena": 1,
+      "archivo": "escena_1.wav",
+      "duracion_seg": 6.4,
+      "wer": 0.3,
+      "intentos": 3,
+      "whisper_oyo": "Octubre de 2026 es el más intenso desde 2012, más del doble de focos de incendio."
+    },
+    {
+      "escena": 2,
+      "archivo": "escena_2.wav",
+      "duracion_seg": 6.32,
+      "wer": 0.2,
+      "intentos": 1,
+      "whisper_oyo": "la temporada completa. Desde julio no es récord. Está 16% bajo el promedio."
+    },
+    {
+      "escena": 3,
+      "archivo": "escena_3.wav",
+      "duracion_seg": 8.08,
+      "wer": 0.05,
+      "intentos": 1,
+      "whisper_oyo": "El récord está en el sur andino, Moquegua cuadruplica su promedio y Apurima y Arequipa ya superan su máximo histórico."
+    },
+    {
+      "escena": 4,
+      "archivo": "escena_4.wav",
+      "duracion_seg": 8.24,
+      "wer": 0.176,
+      "intentos": 1,
+      "whisper_oyo": "Elsa el satélite, confirma el mayor incendio medido. En Arequipa quemó unas 1.500 hectáreas  en cinco días."
+    },
+    {
+      "escena": 5,
+      "archivo": "escena_5.wav",
+      "duracion_seg": 5.52,
+      "wer": 0.333,
+      "intentos": 3,
+      "whisper_oyo": "La lluvia baja el riesgo esta semana. 180 de 182 incendios con riesgo bajo."
+    },
+    {
+      "escena": 6,
+      "archivo": "escena_6.wav",
+      "duracion_seg": 6.32,
+      "wer": 0.0,
+      "intentos": 1,
+      "whisper_oyo": "Mira el mapa interactivo en el enlace de la bio y revisa qué incendios siguen activos esta semana."
+    }
+  ]
+}

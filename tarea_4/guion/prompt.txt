@@ -1,0 +1,47 @@
+Eres guionista de reels para Instagram y TikTok en español del Perú. Resumes datos para un público general que hace scroll: frases cortas, directas y sin tecnicismos. Respondes SOLO con un objeto JSON válido, sin texto adicional ni bloques de código.
+
+Resume estos hallazgos en el guion de un reel vertical de 45 segundos para redes sociales.
+
+Qué contar (solo esto, una idea por escena, en este orden):
+1. Gancho: octubre de 2026 es el más intenso desde 2012.
+2. Giro: la temporada completa NO es récord.
+3. Dónde está el récord: el sur andino (nombra 2 o 3 departamentos, no todos).
+4. Lo que confirma el satélite: el incendio más grande medido con Sentinel-2.
+5. Qué viene: la lluvia baja el riesgo esta semana.
+6. Cierre: invita a ver el mapa interactivo (link en la bio).
+
+Reglas:
+- 6 escenas. Las frases suman entre 105 y 120 palabras en total (unas 18 por escena).
+- Cada escena muestra UNA cifra copiada tal cual del texto (mismo número, mismo formato). En el cierre, cifra vacía "".
+- En "frase" escribe los números en palabras y redondeados, como se dicen en voz alta ("más del doble", "unas mil quinientas hectáreas").
+- Nada de metodología: no menciones dNBR, S-NPP, umbrales, eventos ni reglas de clasificación.
+- Si dices "foco de calor", explícalo en pocas palabras la primera vez (un punto donde el satélite detecta fuego).
+- Usa solo datos del texto. No agregues lugares, causas ni consecuencias que el texto no diga.
+
+Formato:
+{
+  "titulo": "máx. 8 palabras, para la portada",
+  "escenas": [
+    {"frase": "lo que se dice", "cifra": "lo que se ve, p. ej. +106 %", "etiqueta": "qué es, máx. 6 palabras"}
+  ],
+  "texto_post": "2 o 3 líneas para la descripción del post, con el link https://claude.ai/artifact/X8oDTiZ6w59yggsH36ptFu",
+  "hashtags": ["5 a 8 hashtags"]
+}
+
+TEXTO:
+Pregunta: ¿La temporada de incendios 2026 (desde el 1 de julio) supera a las de 2012–2025, en qué
+departamentos, cuánto se quemó realmente en los incendios más grandes y cuáles pueden crecer
+esta semana? Se cuentan incendios, no quemas de manejo ni fuentes fijas de calor.
+
+Hallazgos:
+1. **Octubre de 2026 es el más intenso desde 2012**: 10 814 focos de incendio del 1 al 19 de
+   octubre, **+106 %** sobre el promedio 2012–2025 para esas mismas fechas (puesto 1 de 15).
+2. **La temporada completa no es récord**: 36 996 focos desde el 1 de julio, **−16,3 %** frente al
+   promedio (puesto 12 de 15). Ucayali (−17 %), San Martín (−30 %) y Huánuco (−37 %) van por debajo.
+3. **El récord está en el sur andino**: Moquegua (+337 %), Apurímac (+221 %), Arequipa (+171 %),
+   Lima (+163 %) y Tacna ya superan su máximo de 2012–2025; Ancash (+121 %) está en el puesto 2.
+4. **Sentinel-2 confirma los grandes incendios**: en 7 de los 8 más grandes la medición es
+   confiable. El de Arequipa quemó 1 562 ha en solo 5 días y el de Apurímac 1 252 ha en 12 días.
+   En uno de Junín, Sentinel-2 ve solo 33 ha y confirma el 29 % de sus focos: no es un incendio grande.
+5. **Viene la lluvia**: 180 de 182 incendios activos tienen riesgo climático bajo para la semana
+   (mediana de 40 mm de lluvia pronosticada). Solo uno, en Arequipa, tiene riesgo alto.

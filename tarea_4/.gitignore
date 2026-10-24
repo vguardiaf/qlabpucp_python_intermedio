@@ -1,0 +1,2 @@
+# Pesos de Qwen3-TTS y Whisper (~5 GB): se descargan solos con src/voz.py
+modelos/
