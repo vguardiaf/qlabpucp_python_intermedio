@@ -1,0 +1,10 @@
+# Archivos originales y salidas pesadas (OCR crudo, recortes, audio, SRT): solo local
+datos/raw/
+
+# Entorno uv
+.venv/
+.venv-audio/
+
+# Python / Jupyter
+__pycache__/
+.ipynb_checkpoints/

@@ -1,0 +1,18 @@
+{
+  "modelo": "faster-whisper large-v3 (VAD on)",
+  "faster_whisper": "1.2.1",
+  "asr": {
+    "modelo": "large-v3",
+    "device": "cuda",
+    "compute_type": "float16",
+    "beam_size": 5,
+    "vad_filter": true,
+    "min_silence_duration_ms": 500
+  },
+  "diarizacion": "SpeechBrain ECAPA + clustering aglomerativo",
+  "parametros_diarizacion": {
+    "umbral_coseno": 0.7,
+    "min_segmento_embedding_s": 1.0,
+    "min_voz_por_hablante_s": 5.0
+  }
+}
