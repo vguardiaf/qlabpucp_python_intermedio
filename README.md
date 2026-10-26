@@ -33,15 +33,7 @@ streamlit run app.py
 
 ## Tarea 2 · Documentos y voces del Perú (Parte 1)
 
-Corpus con licencia libre de Wikimedia Commons: impresos, fotos y manuscritos peruanos (una página cada uno) y
-entrevistas callejeras de 2022. OCR con PaddleOCR, transcripción con faster-whisper, diarización y seudonimización
-antes de publicar. Detalle en [tarea_2/README.md](tarea_2/README.md).
-
-```
-cd tarea_2
-uv venv --python 3.12
-uv pip install -r requirements.txt
-```
+'---
 
 ## Tarea 3 · Incendios en el Perú 2026 (retos A, E y F)
 
