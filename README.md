@@ -8,7 +8,7 @@ Cada tarea está en su propia carpeta y tiene su propio README, entorno y `.giti
 | Tarea | Pregunta | Herramientas | Resultado principal |
 |---|---|---|---|
 | [Tarea 1](tarea_1/) | ¿Se pueden convertir titulares peruanos en un clasificador de noticias? | Scraping (RSS y HTML), etiquetado con LLM local, fine-tuning de BETO, Streamlit | 383 titulares de El Comercio · F1 macro **0.82** en test (zero-shot: 0.64) [App](https://clasificador-noticias-peru.streamlit.app/) |
-| [Tarea 2](tarea_2/) | ¿Qué tan bien leen y escuchan los modelos abiertos documentos y voces peruanas? | PaddleOCR, faster-whisper, SpeechBrain (diarización), spaCy (seudonimización), Plotly | Parte 1: 25 documentos y 24 clips (66.8 min) · confianza OCR de **0.96** en impresos y **0.70** en manuscritos |
+| [Tarea 2](tarea_2/) | ¿Qué tan bien leen y escuchan los modelos abiertos documentos y voces peruanas? | PaddleOCR, EasyOCR, faster-whisper, Qwen3-ASR, SpeechBrain (diarización), spaCy (seudonimización), Qwen2.5 (extracción), Streamlit | Resultados Test: WER: **0.19** \| CER: **0.26** \| Acuerdo LLM-Humano: **7/20** · Fuentes: Wikimedia Commons · [App](https://modelos-documentos-audio.streamlit.app/) |
 | [Tarea 3](tarea_3/) | ¿Es 2026 un año récord de incendios en el Perú? | Focos VIIRS (FIRMS e INPE), geopandas, rasterio, WorldCover, Sentinel-2 (dNBR), Open-Meteo, d3 | Octubre 2026 **+106 %** (récord desde 2012), aunque la temporada va −16 % · [Dashboard](https://claude.ai/artifact/X8oDTiZ6w59yggsH36ptFu) |
 | [Tarea 4](tarea_4/) | ¿Se pueden contar los hallazgos de la tarea 3 en un reel con modelos abiertos? | Qwen3.8 (guion), Qwen3-TTS (voz clonada), Whisper (subtítulos), MusicGen (música), Playwright, Pillow, ffmpeg | Reel vertical de **45 s** narrado con mi voz · [reel.mp4](tarea_4/reel/reel.mp4) |
 
@@ -31,9 +31,36 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-## Tarea 2 · Documentos y voces del Perú (Parte 1)
+## Tarea 2 · Documentos y voces del Perú: OCR, ASR y LLM
 
-'---
+Arma dos corpus con licencia libre de Wikimedia Commons: 25 documentos peruanos (impresos, fotos y manuscritos) y
+entrevistas callejeras y noticieros en español peruano. Los pasa por OCR y reconocimiento de voz, seudonimiza los
+nombres, compara 3 OCR y 3 ASR contra transcripciones manuales y extrae campos estructurados con un LLM local, con
+auditoría humana. Detalle, hallazgos y limitaciones en [tarea_2/README.md](tarea_2/README.md).
+
+**Fuentes:** Wikimedia Commons. Los documentos vienen de la Biblioteca Nacional del Perú, de la colección Fitte de la
+Academia Nacional de la Historia argentina (sección Perú) y de usuarios de Commons; los audios, de entrevistas
+callejeras de 2022 subidas por estudiantes y de noticieros de la Biblioteca Nacional del Perú. No se usaron
+archive.org, OpenSLR 73 ni grabaciones propias.
+
+```
+tarea_2/
+├── 01_extraccion.ipynb     # recolección, OCR, transcripción, limpieza, seudonimización y EDA
+├── 02_evaluacion.ipynb     # CER/WER, comparativa de modelos, extracción con LLM y auditoría
+├── app.py                  # dashboard Streamlit: explora documentos, audios y resultados
+├── requirements.txt        # dependencias de la app
+├── datos/                  # documentos.csv, transcripciones.csv, extraccion_llm.csv, fuentes.csv, ejemplos/
+└── modelos/                # configuración de OCR, ASR y de la evaluación
+```
+
+Los archivos originales, el OCR crudo, el audio y las transcripciones manuales (`datos/raw/`) no se suben al repo:
+tienen datos personales o pesan demasiado. El entorno de los notebooks está en el README de la tarea.
+
+```
+cd tarea_2
+pip install -r requirements.txt
+streamlit run app.py
+```
 
 ## Tarea 3 · Incendios en el Perú 2026 (retos A, E y F)
 
