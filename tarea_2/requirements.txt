@@ -1,780 +1,218 @@
 # Dependencias exactas de la tarea 2 (Python 3.12). Instalar con:
 #    uv pip install -r requirements.txt
 --extra-index-url https://download.pytorch.org/whl/cu126
+accelerate==1.15.0
 aiohappyeyeballs==2.7.1
-    # via aiohttp
 aiohttp==3.14.5
-    # via
-    #   fsspec
-    #   paddleocr
 aiosignal==1.4.0
-    # via aiohttp
 aistudio-sdk==0.3.9
-    # via paddlex
 alembic==1.20.1
-    # via optuna
 annotated-doc==0.0.5
-    # via typer
 annotated-types==0.8.0
-    # via pydantic
 anyio==4.15.1
-    # via
-    #   httpx
-    #   httpx2
-appnope==1.0.0 ; sys_platform == 'darwin'
-    # via ipykernel
 asteroid-filterbanks==0.4.0
-    # via pyannote-audio
 asttokens==3.0.2
-    # via stack-data
 attrs==26.1.0
-    # via
-    #   aiohttp
-    #   jsonschema
-    #   referencing
 av==19.0.2
-    # via faster-whisper
 bce-python-sdk==0.9.79
-    # via aistudio-sdk
 beautifulsoup4==4.15.0
-    # via nbconvert
 bleach==6.4.0
-    # via nbconvert
 blis==1.3.4
-    # via thinc
 catalogue==2.0.10
-    # via
-    #   spacy
-    #   srsly
-    #   thinc
 certifi==2026.10.23
-    # via
-    #   httpcore
-    #   httpx
-    #   requests
 cffi==2.1.1
-    # via
-    #   cryptography
-    #   pyzmq
-    #   soundfile
 chardet==7.7.0
-    # via paddlex
 charset-normalizer==3.5.2
-    # via requests
 click==8.5.0
-    # via
-    #   aistudio-sdk
-    #   huggingface-hub
-    #   spacy
 cloudpathlib==0.26.0
-    # via weasel
 cloudpickle==3.1.2
-    # via joblib
-colorama==0.4.6 ; sys_platform == 'win32'
-    # via
-    #   colorlog
-    #   ipython
-    #   tqdm
-    #   typer
-    #   wasabi
+colorama==0.4.6
 colorlog==6.12.0
-    # via
-    #   optuna
-    #   paddlex
 comm==0.2.3
-    # via ipykernel
 confection==1.3.3
-    # via
-    #   spacy
-    #   thinc
-    #   weasel
 contourpy==1.4.0
-    # via matplotlib
 crc32c==2.9.post0
-    # via bce-python-sdk
 cryptography==50.0.2
-    # via modelscope-hub
 ctranslate2==4.8.4
-    # via faster-whisper
-cuda-bindings==12.9.10 ; sys_platform == 'linux'
-    # via torch
-cuda-pathfinder==1.8.4 ; sys_platform == 'linux'
-    # via cuda-bindings
-cuda-toolkit==12.6.3 ; sys_platform == 'linux'
-    # via torch
 cycler==0.12.1
-    # via matplotlib
 cymem==2.0.16
-    # via
-    #   preshed
-    #   spacy
-    #   thinc
 debugpy==1.8.22
-    # via ipykernel
 defusedxml==0.7.1
-    # via nbconvert
+easyocr==1.7.2
 einops==0.8.2
-    # via pyannote-audio
 es-core-news-md @ https://github.com/explosion/spacy-models/releases/download/es_core_news_md-3.8.0/es_core_news_md-3.8.0-py3-none-any.whl
-    # via tarea-2
 executing==2.3.0
-    # via stack-data
 faster-whisper==1.2.1
 fastjsonschema==2.22.2
-    # via nbformat
 filelock==4.2.4
-    # via
-    #   huggingface-hub
-    #   modelscope
-    #   modelscope-hub
-    #   paddlex
-    #   pyannote-pipeline
-    #   torch
 flatbuffers==25.12.19
-    # via onnxruntime
 fonttools==4.67.0
-    # via matplotlib
 frozenlist==1.8.0
-    # via
-    #   aiohttp
-    #   aiosignal
 fsspec==2026.9.0
-    # via
-    #   huggingface-hub
-    #   lightning
-    #   pytorch-lightning
-    #   torch
 future==1.0.0
-    # via bce-python-sdk
 googleapis-common-protos==1.76.0
-    # via
-    #   opentelemetry-exporter-otlp-proto-grpc
-    #   opentelemetry-exporter-otlp-proto-http
 grpcio==1.84.1
-    # via opentelemetry-exporter-otlp-proto-grpc
 h11==0.16.0
-    # via
-    #   httpcore
-    #   httpcore2
-hf-xet==1.7.0 ; platform_machine == 'AMD64' or platform_machine == 'ARM64' or platform_machine == 'aarch64' or platform_machine == 'amd64' or platform_machine == 'arm64' or platform_machine == 'x86_64'
-    # via huggingface-hub
+hf-xet==1.7.0
 httpcore==1.0.9
-    # via httpx
-httpcore2==2.16.0 ; sys_platform != 'emscripten'
-    # via httpx2
+httpcore2==2.16.0
 httpx==0.28.1
-    # via
-    #   paddlepaddle
-    #   weasel
 httpx2==2.16.0
-    # via huggingface-hub
-httpx2-jsfetch==1.0 ; sys_platform == 'emscripten'
-    # via httpx2
 huggingface-hub==2.3.0
-    # via
-    #   faster-whisper
-    #   paddlex
-    #   pyannote-audio
-    #   speechbrain
-    #   tokenizers
 hyperpyyaml==1.2.3
-    # via speechbrain
 idna==3.20
-    # via
-    #   anyio
-    #   httpx
-    #   httpx2
-    #   requests
-    #   yarl
+imageio==2.38.1
 imageio-ffmpeg==0.6.0
-    # via tarea-2
 imagesize==2.0.1
-    # via paddlex
 ipykernel==7.4.0
-    # via tarea-2
 ipython==9.17.1
-    # via ipykernel
 ipython-pygments-lexers==1.1.1
-    # via ipython
 jedi==0.20.1
-    # via ipython
 jinja2==3.1.6
-    # via
-    #   nbconvert
-    #   spacy
-    #   torch
+jiwer==4.0.0
 joblib==1.6.0
-    # via
-    #   scikit-learn
-    #   speechbrain
 jsonschema==4.26.0
-    # via nbformat
 jsonschema-specifications==2025.9.1
-    # via jsonschema
 julius==0.2.8
-    # via torch-audiomentations
 jupyter-client==8.10.0
-    # via
-    #   ipykernel
-    #   nbclient
 jupyter-core==5.9.1
-    # via
-    #   ipykernel
-    #   jupyter-client
-    #   nbclient
-    #   nbconvert
-    #   nbformat
 jupyterlab-pygments==0.3.0
-    # via nbconvert
 kiwisolver==1.5.1
-    # via matplotlib
+lazy-loader==0.6
 lightning==2.6.6
-    # via pyannote-audio
 lightning-utilities==0.15.3
-    # via
-    #   lightning
-    #   pytorch-lightning
-    #   torchmetrics
 mako==1.4.3
-    # via alembic
 markdown-it-py==4.2.0
-    # via rich
 markupsafe==3.0.4
-    # via
-    #   jinja2
-    #   mako
-    #   nbconvert
 matplotlib==3.11.2
-    # via pyannote-audio
 matplotlib-inline==0.2.2
-    # via
-    #   ipykernel
-    #   ipython
 mdurl==0.1.2
-    # via markdown-it-py
 mistune==3.4.0
-    # via nbconvert
 modelscope==1.40.2
-    # via paddlex
 modelscope-hub==0.5.0
-    # via modelscope
 mpmath==1.3.0
-    # via sympy
 multidict==7.2.1
-    # via
-    #   aiohttp
-    #   yarl
 murmurhash==1.0.16
-    # via
-    #   preshed
-    #   spacy
-    #   thinc
 narwhals==2.27.1
-    # via
-    #   plotly
-    #   scikit-learn
 nbclient==0.11.0
-    # via nbconvert
 nbconvert==7.17.2
-    # via tarea-2
 nbformat==5.11.1
-    # via
-    #   nbclient
-    #   nbconvert
-    #   tarea-2
 nest-asyncio2==1.7.4
-    # via ipykernel
 networkx==3.7
-    # via
-    #   paddlepaddle
-    #   torch
+ninja==1.13.2
 numpy==2.3.5
-    # via
-    #   asteroid-filterbanks
-    #   blis
-    #   contourpy
-    #   ctranslate2
-    #   matplotlib
-    #   onnxruntime
-    #   opencv-contrib-python
-    #   opencv-python-headless
-    #   opt-einsum
-    #   optuna
-    #   paddlepaddle
-    #   paddlex
-    #   pandas
-    #   pyannote-core
-    #   pyannote-metrics
-    #   pytorch-metric-learning
-    #   scikit-learn
-    #   scipy
-    #   shapely
-    #   soundfile
-    #   spacy
-    #   speechbrain
-    #   thinc
-    #   torchmetrics
-nvidia-cublas-cu12==12.6.4.1 ; sys_platform != 'emscripten' and sys_platform != 'win32'
-    # via
-    #   cuda-toolkit
-    #   nvidia-cudnn-cu12
-    #   nvidia-cusolver-cu12
-nvidia-cublas-cu12==12.9.2.10 ; sys_platform == 'emscripten' or sys_platform == 'win32'
-    # via nvidia-cudnn-cu12
-nvidia-cuda-cupti-cu12==12.6.80 ; sys_platform == 'linux'
-    # via cuda-toolkit
-nvidia-cuda-nvrtc-cu12==12.6.85 ; sys_platform == 'linux'
-    # via cuda-toolkit
-nvidia-cuda-nvrtc-cu12==12.9.86 ; sys_platform == 'emscripten' or sys_platform == 'win32'
-    # via nvidia-cublas-cu12
-nvidia-cuda-runtime-cu12==12.6.77 ; sys_platform == 'linux'
-    # via cuda-toolkit
-nvidia-cudnn-cu12==9.10.2.21 ; sys_platform != 'emscripten' and sys_platform != 'win32'
-    # via torch
-nvidia-cudnn-cu12==9.27.0.42 ; sys_platform == 'emscripten' or sys_platform == 'win32'
-nvidia-cufft-cu12==11.3.0.4 ; sys_platform == 'linux'
-    # via cuda-toolkit
-nvidia-cufile-cu12==1.11.1.6 ; sys_platform == 'linux'
-    # via cuda-toolkit
-nvidia-curand-cu12==10.3.7.77 ; sys_platform == 'linux'
-    # via cuda-toolkit
-nvidia-cusolver-cu12==11.7.1.2 ; sys_platform == 'linux'
-    # via cuda-toolkit
-nvidia-cusparse-cu12==12.5.4.2 ; sys_platform == 'linux'
-    # via
-    #   cuda-toolkit
-    #   nvidia-cusolver-cu12
-nvidia-cusparselt-cu12==0.7.1 ; sys_platform == 'linux'
-    # via torch
-nvidia-nccl-cu12==2.29.3 ; sys_platform == 'linux'
-    # via torch
-nvidia-nvjitlink-cu12==12.9.86 ; sys_platform == 'linux'
-    # via
-    #   nvidia-cufft-cu12
-    #   nvidia-cusolver-cu12
-    #   nvidia-cusparse-cu12
-    #   torch
-nvidia-nvshmem-cu12==3.4.5 ; sys_platform == 'linux'
-    # via torch
-nvidia-nvtx-cu12==12.6.77 ; sys_platform == 'linux'
-    # via cuda-toolkit
+nvidia-cublas-cu12==12.9.2.10
+nvidia-cuda-nvrtc-cu12==12.9.86
+nvidia-cudnn-cu12==9.27.0.42
 onnxruntime==1.31.0
-    # via faster-whisper
 opencv-contrib-python==4.10.0.84
-    # via paddlex
 opencv-python-headless==5.0.0.93
 opentelemetry-api==1.45.1
-    # via
-    #   opentelemetry-exporter-http-transport
-    #   opentelemetry-exporter-otlp-proto-grpc
-    #   opentelemetry-exporter-otlp-proto-http
-    #   opentelemetry-sdk
-    #   opentelemetry-semantic-conventions
-    #   pyannote-audio
 opentelemetry-exporter-http-transport==0.66b1
-    # via opentelemetry-exporter-otlp-proto-http
 opentelemetry-exporter-otlp==1.45.1
-    # via pyannote-audio
 opentelemetry-exporter-otlp-common==0.66b1
-    # via
-    #   opentelemetry-exporter-otlp-proto-grpc
-    #   opentelemetry-exporter-otlp-proto-http
 opentelemetry-exporter-otlp-proto-common==1.45.1
-    # via
-    #   opentelemetry-exporter-otlp-proto-grpc
-    #   opentelemetry-exporter-otlp-proto-http
 opentelemetry-exporter-otlp-proto-grpc==1.45.1
-    # via opentelemetry-exporter-otlp
 opentelemetry-exporter-otlp-proto-http==1.45.1
-    # via opentelemetry-exporter-otlp
 opentelemetry-proto==1.45.1
-    # via
-    #   opentelemetry-exporter-otlp-proto-common
-    #   opentelemetry-exporter-otlp-proto-grpc
-    #   opentelemetry-exporter-otlp-proto-http
 opentelemetry-sdk==1.45.1
-    # via
-    #   opentelemetry-exporter-otlp-common
-    #   opentelemetry-exporter-otlp-proto-grpc
-    #   opentelemetry-exporter-otlp-proto-http
-    #   pyannote-audio
 opentelemetry-semantic-conventions==0.66b1
-    # via opentelemetry-sdk
 opt-einsum==3.3.0
-    # via paddlepaddle
 optuna==5.0.0
-    # via pyannote-pipeline
 packaging==26.3
-    # via
-    #   huggingface-hub
-    #   ipykernel
-    #   lightning
-    #   lightning-utilities
-    #   matplotlib
-    #   modelscope
-    #   nbconvert
-    #   onnxruntime
-    #   optuna
-    #   paddlex
-    #   plotly
-    #   pytorch-lightning
-    #   spacy
-    #   speechbrain
-    #   thinc
-    #   torch-pitch-shift
-    #   torchmetrics
-    #   weasel
 paddleocr==3.7.0
 paddlepaddle==3.2.0
 paddlex==3.7.2
-    # via paddleocr
 pandas==3.1.0
-    # via
-    #   paddlex
-    #   pyannote-core
-    #   pyannote-database
-    #   pyannote-metrics
-    #   tarea-2
 pandocfilters==1.5.1
-    # via nbconvert
 parso==0.8.7
-    # via jedi
-pexpect==4.9.0 ; sys_platform != 'emscripten' and sys_platform != 'win32'
-    # via ipython
 pillow==13.0.0
-    # via
-    #   matplotlib
-    #   paddlepaddle
-    #   paddlex
-    #   tarea-2
 platformdirs==4.13.5
-    # via jupyter-core
 plotly==7.1.0
-    # via tarea-2
 preshed==3.0.15
-    # via
-    #   spacy
-    #   thinc
 prettytable==3.18.0
-    # via
-    #   aistudio-sdk
-    #   paddlex
 primepy==1.3
-    # via torch-pitch-shift
 prompt-toolkit==3.0.53
-    # via ipython
 propcache==0.5.4
-    # via
-    #   aiohttp
-    #   yarl
 protobuf==7.36.2
-    # via
-    #   googleapis-common-protos
-    #   onnxruntime
-    #   opentelemetry-proto
-    #   paddlepaddle
 psutil==7.2.2
-    # via
-    #   aistudio-sdk
-    #   ipython
-ptyprocess==0.7.0 ; sys_platform != 'emscripten' and sys_platform != 'win32'
-    # via pexpect
 pure-eval==0.2.4
-    # via stack-data
 py-cpuinfo==9.0.0
-    # via paddlex
 pyannote-audio==4.0.7
 pyannote-core==6.1.0
-    # via
-    #   pyannote-audio
-    #   pyannote-database
-    #   pyannote-metrics
-    #   pyannote-pipeline
 pyannote-database==6.1.1
-    # via
-    #   pyannote-audio
-    #   pyannote-metrics
-    #   pyannote-pipeline
 pyannote-metrics==4.2.0
-    # via pyannote-audio
 pyannote-pipeline==4.1.0
-    # via pyannote-audio
 pyannoteai-sdk==0.4.0
-    # via pyannote-audio
 pyclipper==1.4.0
-    # via paddlex
-pycparser==3.12 ; implementation_name != 'PyPy'
-    # via cffi
+pycparser==3.12
 pycryptodome==4.2.0
-    # via bce-python-sdk
 pydantic==2.14.1
-    # via
-    #   paddlex
-    #   spacy
-    #   thinc
-    #   weasel
 pydantic-core==2.50.1
-    # via pydantic
 pygments==2.21.0
-    # via
-    #   ipython
-    #   ipython-pygments-lexers
-    #   nbconvert
-    #   rich
 pyparsing==3.3.3
-    # via matplotlib
 pypdfium2==5.14.0
-    # via paddlex
 python-bidi==0.6.12
-    # via paddlex
 python-dateutil==3.0.0
-    # via
-    #   jupyter-client
-    #   matplotlib
-    #   pandas
 pytorch-lightning==2.6.6
-    # via lightning
 pytorch-metric-learning==2.9.0
-    # via pyannote-audio
 pyyaml==6.0.2
-    # via
-    #   ctranslate2
-    #   huggingface-hub
-    #   hyperpyyaml
-    #   lightning
-    #   optuna
-    #   paddleocr
-    #   paddlex
-    #   pyannote-database
-    #   pyannote-pipeline
-    #   pytorch-lightning
 pyzmq==27.2.0
-    # via
-    #   ipykernel
-    #   jupyter-client
+rapidfuzz==3.14.6
 referencing==0.37.0
-    # via
-    #   jsonschema
-    #   jsonschema-specifications
+regex==2026.9.29
 requests==2.34.2
-    # via
-    #   aistudio-sdk
-    #   modelscope
-    #   modelscope-hub
-    #   opentelemetry-exporter-http-transport
-    #   opentelemetry-exporter-otlp-proto-http
-    #   paddleocr
-    #   paddlex
-    #   pyannoteai-sdk
-    #   spacy
-    #   speechbrain
-    #   tarea-2
 rich==15.0.0
-    # via
-    #   pyannote-audio
-    #   typer
 rpds-py==2026.9.1
-    # via
-    #   jsonschema
-    #   referencing
 ruamel-yaml==0.18.17
-    # via
-    #   hyperpyyaml
-    #   paddlex
-ruamel-yaml-clib==0.2.15 ; platform_python_implementation == 'CPython'
-    # via ruamel-yaml
+ruamel-yaml-clib==0.2.15
 safetensors==0.8.0
-    # via
-    #   paddlepaddle
-    #   pyannote-audio
+scikit-image==0.26.0
 scikit-learn==1.9.1
-    # via
-    #   pyannote-metrics
-    #   pytorch-metric-learning
 scipy==1.18.1
-    # via
-    #   pyannote-metrics
-    #   pyannote-pipeline
-    #   scikit-learn
-    #   speechbrain
 sentencepiece==0.2.2
-    # via speechbrain
 setuptools==84.2.1
-    # via
-    #   modelscope
-    #   spacy
-    #   thinc
-    #   torch
 shapely==2.2.0
-    # via paddlex
 shellingham==1.5.4
-    # via typer
 six==1.17.0
-    # via
-    #   bce-python-sdk
-    #   python-dateutil
 smart-open==8.0.4
-    # via weasel
 sortedcontainers==2.4.0
-    # via pyannote-core
 soundfile==0.14.0
-    # via speechbrain
 soupsieve==3.0.4
-    # via beautifulsoup4
 spacy==3.8.16
-    # via tarea-2
 spacy-legacy==3.0.12
-    # via spacy
 spacy-loggers==1.0.5
-    # via spacy
 speechbrain==1.1.2
 sqlalchemy==2.1.6
-    # via
-    #   alembic
-    #   optuna
 srsly==2.5.5
-    # via
-    #   spacy
-    #   thinc
-    #   weasel
 stack-data==0.6.3
-    # via ipython
 sympy==1.14.0
-    # via torch
 thinc==8.3.14
-    # via spacy
 threadpoolctl==3.7.0
-    # via scikit-learn
+tifffile==2026.10.15
 tinycss2==1.5.1
-    # via bleach
 tokenizers==0.23.3
-    # via faster-whisper
 torch==2.14.1+cu126
-    # via
-    #   asteroid-filterbanks
-    #   julius
-    #   lightning
-    #   pyannote-audio
-    #   pytorch-lightning
-    #   pytorch-metric-learning
-    #   speechbrain
-    #   torch-audiomentations
-    #   torch-pitch-shift
-    #   torchmetrics
 torch-audiomentations==0.12.0
-    # via pyannote-audio
 torch-pitch-shift==1.2.5
-    # via torch-audiomentations
 torchaudio==2.11.0+cu126
-    # via
-    #   pyannote-audio
-    #   speechbrain
-    #   torch-audiomentations
-    #   torch-pitch-shift
 torchcodec==0.17.0
-    # via pyannote-audio
 torchmetrics==1.9.0
-    # via
-    #   lightning
-    #   pyannote-audio
-    #   pytorch-lightning
+torchvision==0.29.1+cu126
 tornado==6.6
-    # via
-    #   ipykernel
-    #   jupyter-client
 tqdm==4.70.1
-    # via
-    #   aistudio-sdk
-    #   faster-whisper
-    #   huggingface-hub
-    #   lightning
-    #   modelscope
-    #   modelscope-hub
-    #   optuna
-    #   pyannote-pipeline
-    #   pytorch-lightning
-    #   pytorch-metric-learning
-    #   spacy
-    #   speechbrain
 traitlets==5.16.1
-    # via
-    #   ipykernel
-    #   ipython
-    #   jupyter-client
-    #   jupyter-core
-    #   matplotlib-inline
-    #   nbclient
-    #   nbconvert
-    #   nbformat
-triton==3.8.0 ; sys_platform == 'linux'
-    # via torch
-truststore==0.10.5 ; sys_platform != 'emscripten'
-    # via
-    #   httpcore2
-    #   httpx2
+transformers==5.20.2
+truststore==0.10.5
 typer==0.27.3
-    # via
-    #   spacy
-    #   weasel
 typing-extensions==4.16.0
-    # via
-    #   aiohttp
-    #   aiosignal
-    #   alembic
-    #   anyio
-    #   asteroid-filterbanks
-    #   beautifulsoup4
-    #   grpcio
-    #   httpx2
-    #   huggingface-hub
-    #   jupyter-client
-    #   lightning
-    #   lightning-utilities
-    #   opentelemetry-api
-    #   opentelemetry-exporter-otlp-proto-grpc
-    #   opentelemetry-exporter-otlp-proto-http
-    #   opentelemetry-sdk
-    #   opentelemetry-semantic-conventions
-    #   paddleocr
-    #   paddlepaddle
-    #   paddlex
-    #   pydantic
-    #   pydantic-core
-    #   pytorch-lightning
-    #   referencing
-    #   soundfile
-    #   sqlalchemy
-    #   torch
-    #   typing-inspection
 typing-inspection==0.4.4
-    # via pydantic
 tzdata==2026.5
-    # via
-    #   pandas
-    #   python-dateutil
 ujson==6.0.0
-    # via paddlex
 urllib3==2.8.0
-    # via
-    #   modelscope
-    #   modelscope-hub
-    #   requests
 wasabi==1.1.3
-    # via
-    #   spacy
-    #   thinc
-    #   weasel
 wcwidth==0.9.4
-    # via
-    #   prettytable
-    #   prompt-toolkit
 weasel==1.0.0
-    # via spacy
 webencodings==0.6.1
-    # via
-    #   bleach
-    #   tinycss2
 wrapt==2.5.1
-    # via smart-open
 yarl==1.25.1
-    # via aiohttp

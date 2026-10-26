@@ -1,0 +1,119 @@
+{
+  "ocr": {
+    "paddle_base": {
+      "descripcion": "Línea base: PaddleOCR sin personalización",
+      "modelo": "PaddleOCR 3.7.0 (PP-OCRv6 medium)",
+      "parametros": {
+        "lang": "es"
+      },
+      "dispositivo": "cpu"
+    },
+    "paddle_parte1": {
+      "descripcion": "PaddleOCR de la Parte 1: orientación, enderezado y CLAHE en fotos",
+      "modelo": "PaddleOCR 3.7.0 (PP-OCRv6 medium)",
+      "parametros": {
+        "lang": "es",
+        "use_doc_orientation_classify": true,
+        "use_doc_unwarping": true,
+        "use_textline_orientation": true,
+        "clahe_fotos": true
+      },
+      "dispositivo": "cpu"
+    },
+    "easyocr": {
+      "descripcion": "Alternativa: EasyOCR (detector CRAFT + reconocedor CRNN), otra arquitectura que PaddleOCR",
+      "modelo": "EasyOCR 1.7.2",
+      "parametros": {
+        "lang_list": [
+          "es"
+        ],
+        "paragraph": false
+      },
+      "dispositivo": "cuda"
+    }
+  },
+  "asr": {
+    "whisper_small_cpu": {
+      "descripcion": "Línea base: faster-whisper small en CPU, sin ajustes",
+      "modelo": "faster-whisper small",
+      "parametros": {
+        "compute_type": "int8",
+        "beam_size": 5
+      },
+      "dispositivo": "cpu"
+    },
+    "whisper_large_gpu": {
+      "descripcion": "faster-whisper large-v3 de la Parte 1",
+      "modelo": "faster-whisper large-v3",
+      "parametros": {
+        "compute_type": "float16",
+        "beam_size": 5,
+        "language": "es",
+        "vad_filter": true,
+        "min_silence_duration_ms": 500
+      },
+      "dispositivo": "cuda"
+    },
+    "qwen3_asr": {
+      "descripcion": "Alternativa: Qwen3-ASR 0.6B, tramos de voz de hasta 25 s cortados con el VAD Silero",
+      "modelo": "Qwen/Qwen3-ASR-0.6B-hf",
+      "parametros": {
+        "dtype": "bfloat16",
+        "language": "es",
+        "max_tramo_s": 25
+      },
+      "dispositivo": "cuda"
+    }
+  },
+  "llm": {
+    "modelo": "Qwen/Qwen2.5-3B-Instruct",
+    "parametros": {
+      "dtype": "bfloat16",
+      "temperature": 0,
+      "max_new_tokens": 512
+    },
+    "dispositivo": "cuda"
+  },
+  "normalizacion": "minúsculas, NFC, sin marcas entre corchetes, sin guiones de corte de línea, sin puntuación, espacios simples",
+  "ventana_audio": {
+    "criterio": "de 0 al final del segmento de Whisper large-v3 que contiene las últimas palabras de la referencia",
+    "segundos": {
+      "clip_004": 66.24,
+      "clip_005": 61.22,
+      "clip_009": 60.0,
+      "clip_011": 57.48,
+      "clip_016": 61.96,
+      "clip_018": 65.42,
+      "clip_019": 61.18,
+      "clip_022": 66.04,
+      "clip_023": 64.18,
+      "clip_025": 65.37
+    }
+  },
+  "muestra": {
+    "documentos": [
+      "doc_001",
+      "doc_007",
+      "doc_008",
+      "doc_011",
+      "doc_013",
+      "doc_016",
+      "doc_018",
+      "doc_019",
+      "doc_021",
+      "doc_023"
+    ],
+    "clips": [
+      "clip_004",
+      "clip_005",
+      "clip_009",
+      "clip_011",
+      "clip_016",
+      "clip_018",
+      "clip_019",
+      "clip_022",
+      "clip_023",
+      "clip_025"
+    ]
+  }
+}
