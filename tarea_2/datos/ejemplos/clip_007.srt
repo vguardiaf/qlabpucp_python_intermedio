@@ -4,7 +4,7 @@
 
 2
 00:00:06,660 --> 00:00:12,400
-[HABLANTE_1] En esta oportunidad nos acompaña el maestro, el señor [PERSONA_187], y le voy a hacer la entrevista.
+[HABLANTE_1] En esta oportunidad nos acompaña el maestro, el señor [PERSONA_192], y le voy a hacer la entrevista.
 
 3
 00:00:13,340 --> 00:00:19,180
@@ -112,7 +112,7 @@
 
 29
 00:02:29,250 --> 00:02:36,250
-[HABLANTE_2] He estado en la zona de la guerrilla, que era el [PERSONA_191], [PERSONA_190].
+[HABLANTE_2] He estado en la zona de la guerrilla, que era el [PERSONA_196], [PERSONA_195].
 
 30
 00:02:36,250 --> 00:02:39,250
@@ -224,7 +224,7 @@
 
 57
 00:03:50,700 --> 00:03:51,700
-[HABLANTE_2] [PERSONA_189] son nuestras costumbres acá en esta zona.
+[HABLANTE_2] [PERSONA_194] son nuestras costumbres acá en esta zona.
 
 58
 00:03:51,700 --> 00:03:52,700
@@ -340,4 +340,4 @@
 
 86
 00:04:42,760 --> 00:04:47,920
-[HABLANTE_1] Ese es el mensaje de nuestro amigo [PERSONA_187], muchas gracias.
+[HABLANTE_1] Ese es el mensaje de nuestro amigo [PERSONA_192], muchas gracias.
