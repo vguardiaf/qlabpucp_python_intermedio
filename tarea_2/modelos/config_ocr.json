@@ -1,0 +1,20 @@
+{
+  "modelo": "PaddleOCR 3.7.0 (lang=es, orientación y enderezado de página; CLAHE en fotos)",
+  "paddleocr": "3.7.0",
+  "paddlepaddle": "3.2.0",
+  "dispositivo": "cpu",
+  "parametros": {
+    "lang": "es",
+    "use_doc_orientation_classify": true,
+    "use_doc_unwarping": true,
+    "use_textline_orientation": true
+  },
+  "preprocesamiento_fotos": {
+    "escala": "grises",
+    "clahe_clip_limit": 2.0,
+    "clahe_tile_grid": [
+      8,
+      8
+    ]
+  }
+}

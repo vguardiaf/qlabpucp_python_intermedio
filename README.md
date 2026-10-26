@@ -8,6 +8,7 @@ Cada tarea está en su propia carpeta y tiene su propio README, entorno y `.giti
 | Tarea | Pregunta | Herramientas | Resultado principal |
 |---|---|---|---|
 | [Tarea 1](tarea_1/) | ¿Se pueden convertir titulares peruanos en un clasificador de noticias? | Scraping (RSS y HTML), etiquetado con LLM local, fine-tuning de BETO, Streamlit | 383 titulares de El Comercio · F1 macro **0.82** en test (zero-shot: 0.64) [App](https://clasificador-noticias-peru.streamlit.app/) |
+| [Tarea 2](tarea_2/) | ¿Qué tan bien leen y escuchan los modelos abiertos documentos y voces peruanas? | PaddleOCR, faster-whisper, SpeechBrain (diarización), spaCy (seudonimización), Plotly | Parte 1: 25 documentos y 24 clips (66.8 min) · confianza OCR de **0.96** en impresos y **0.70** en manuscritos |
 | [Tarea 3](tarea_3/) | ¿Es 2026 un año récord de incendios en el Perú? | Focos VIIRS (FIRMS e INPE), geopandas, rasterio, WorldCover, Sentinel-2 (dNBR), Open-Meteo, d3 | Octubre 2026 **+106 %** (récord desde 2012), aunque la temporada va −16 % · [Dashboard](https://claude.ai/artifact/X8oDTiZ6w59yggsH36ptFu) |
 | [Tarea 4](tarea_4/) | ¿Se pueden contar los hallazgos de la tarea 3 en un reel con modelos abiertos? | Qwen3.8 (guion), Qwen3-TTS (voz clonada), Whisper (subtítulos), MusicGen (música), Playwright, Pillow, ffmpeg | Reel vertical de **45 s** narrado con mi voz · [reel.mp4](tarea_4/reel/reel.mp4) |
 
@@ -28,6 +29,18 @@ Los pesos del modelo (`modelo/`) no se suben al repo: se regeneran con `02_clasi
 cd tarea_1
 pip install -r requirements.txt
 streamlit run app.py
+```
+
+## Tarea 2 · Documentos y voces del Perú (Parte 1)
+
+Corpus con licencia libre de Wikimedia Commons: impresos, fotos y manuscritos peruanos (una página cada uno) y
+entrevistas callejeras de 2022. OCR con PaddleOCR, transcripción con faster-whisper, diarización y seudonimización
+antes de publicar. Detalle en [tarea_2/README.md](tarea_2/README.md).
+
+```
+cd tarea_2
+uv sync --group docai --group audio
+uv run jupyter lab 01_extraccion.ipynb
 ```
 
 ## Tarea 3 · Incendios en el Perú 2026 (retos A, E y F)

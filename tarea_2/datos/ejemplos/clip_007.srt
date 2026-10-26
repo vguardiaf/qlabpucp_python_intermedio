@@ -1,0 +1,343 @@
+1
+00:00:01,740 --> 00:00:05,980
+[HABLANTE_1] Muy buenas tardes, nos encontramos en la ciudad de Cusco, en Fiestas Patrias.
+
+2
+00:00:06,660 --> 00:00:12,400
+[HABLANTE_1] En esta oportunidad nos acompaña el maestro, el señor [PERSONA_187], y le voy a hacer la entrevista.
+
+3
+00:00:13,340 --> 00:00:19,180
+[HABLANTE_1] Pero primero, le voy a pedir que acepte que esta entrevista se suba a una plataforma de internet,
+
+4
+00:00:19,320 --> 00:00:22,560
+[HABLANTE_1] donde todos van a poder escucharlo y aprender de usted.
+
+5
+00:00:23,240 --> 00:00:24,000
+[HABLANTE_?] ¿Acepta o no?
+
+6
+00:00:24,240 --> 00:00:25,820
+[HABLANTE_?] Sí, claro.
+
+7
+00:00:26,100 --> 00:00:26,240
+[HABLANTE_1] Ya.
+
+8
+00:00:27,080 --> 00:00:30,540
+[HABLANTE_1] La primera pregunta es, ¿qué significa el Perú para usted?
+
+9
+00:00:31,740 --> 00:00:40,760
+[HABLANTE_2] El Perú para mí es un gran país en Latinoamérica, como en América del Norte, del Sur y en el mundo también.
+
+10
+00:00:41,300 --> 00:00:48,220
+[HABLANTE_2] Es famoso por muchos restos arqueológicos que tiene por ahí, que lo conocen al Perú como tal.
+
+11
+00:00:49,380 --> 00:00:49,600
+[HABLANTE_1] Ya.
+
+12
+00:00:50,160 --> 00:00:55,220
+[HABLANTE_1] La segunda pregunta es, ¿qué características positivas tiene el Perú?
+
+13
+00:00:55,580 --> 00:01:02,840
+[HABLANTE_2] El Perú, características tiene muchas, con diferencia de otros países.
+
+14
+00:01:03,470 --> 00:01:12,540
+[HABLANTE_2] Como por ejemplo, tiene la costa muy rica, tiene la sierra hermosa, donde hay hermosos recuerdos incas.
+
+15
+00:01:13,630 --> 00:01:22,450
+[HABLANTE_2] La selva, una parte de la vida virgen, que produce muchísimos animales, que todavía no están de repente muchos al descubierto.
+
+16
+00:01:22,450 --> 00:01:31,870
+[HABLANTE_2] Es una maravilla en cuanto a los animales también, nuestros lagos, nuestros ríos y la selva misma del Medio Oriente.
+
+17
+00:01:32,450 --> 00:01:36,750
+[HABLANTE_1] La tercera pregunta es,
+
+18
+00:01:36,830 --> 00:01:39,030
+[HABLANTE_1] ¿qué características negativas tiene el Perú?
+
+19
+00:01:40,400 --> 00:01:45,240
+[HABLANTE_2] Características negativas, así como es tan rico, también hay en abundancia.
+
+20
+00:01:45,820 --> 00:01:53,590
+[HABLANTE_2] Por ejemplo, nuestra gente, todas las autoridades se han dedicado más al robo.
+
+21
+00:01:55,260 --> 00:01:59,180
+[HABLANTE_2] Las pifadas de dinero que no se han invertido como se debe.
+
+22
+00:02:00,180 --> 00:02:05,860
+[HABLANTE_2] Pese que es dinero del pueblo, pero no se hace en permiso del pueblo, sino una sola parte.
+
+23
+00:02:05,860 --> 00:02:08,960
+[HABLANTE_2] El resto del dinero es pavo.
+
+24
+00:02:08,980 --> 00:02:11,980
+[HABLANTE_2] Por eso los altos funcionarios que tenemos en el Perú.
+
+25
+00:02:11,980 --> 00:02:15,780
+[HABLANTE_1] Y la última pregunta es,
+
+26
+00:02:15,780 --> 00:02:19,780
+[HABLANTE_1] ¿qué costumbres familiares tiene para celebrar las fiestas patrias?
+
+27
+00:02:21,580 --> 00:02:27,250
+[HABLANTE_2] Costumbres familiares casi no tanto, pero soy ex militar.
+
+28
+00:02:27,250 --> 00:02:29,250
+[HABLANTE_2] He estado en dos oportunidades.
+
+29
+00:02:29,250 --> 00:02:36,250
+[HABLANTE_2] He estado en la zona de la guerrilla, que era el [PERSONA_191], [PERSONA_190].
+
+30
+00:02:36,250 --> 00:02:39,250
+[HABLANTE_2] Allí he pasado los peores momentos de mi vida.
+
+31
+00:02:39,250 --> 00:02:40,010
+[HABLANTE_2] ¿No?
+
+32
+00:02:40,010 --> 00:02:40,510
+[HABLANTE_2] Sí.
+
+33
+00:02:40,510 --> 00:02:42,510
+[HABLANTE_2] He sido abandonado por mis jefes.
+
+34
+00:02:42,510 --> 00:02:47,510
+[HABLANTE_2] Durante nueve días, diez días sin comer, andando por la selva y desorientado.
+
+35
+00:02:47,510 --> 00:02:51,510
+[HABLANTE_2] He sido abandonado por mis jefes y ocho hombres más conmigo nuevos.
+
+36
+00:02:51,510 --> 00:02:57,510
+[HABLANTE_2] Esas ingratitudes que me dan ganas de llorar, de cólera, de emoción.
+
+37
+00:03:00,510 --> 00:03:03,510
+[HABLANTE_2] Para mí esos jefes deberían desaparecer.
+
+38
+00:03:03,510 --> 00:03:05,510
+[HABLANTE_2] Deberíamos formar una nueva juventud.
+
+39
+00:03:05,510 --> 00:03:07,510
+[HABLANTE_2] Que sean pues patriotas de verdad.
+
+40
+00:03:07,510 --> 00:03:09,510
+[HABLANTE_2] Que se sacrificen por este hermoso Perú.
+
+41
+00:03:10,510 --> 00:03:11,510
+[HABLANTE_?] Que tengan.
+
+42
+00:03:13,510 --> 00:03:19,510
+[HABLANTE_1] ¿Qué costumbres individuales tiene para celebrar el día?
+
+43
+00:03:19,510 --> 00:03:22,510
+[HABLANTE_1] Quizás comer un ceviche o visitar esta plaza.
+
+44
+00:03:22,510 --> 00:03:23,510
+[HABLANTE_?] ¿Como cuál tiene?
+
+45
+00:03:23,510 --> 00:03:31,600
+[HABLANTE_2] Bueno, nosotros tenemos la costumbre pues en el Cusco es visitar a la plaza de armas.
+
+46
+00:03:31,600 --> 00:03:35,600
+[HABLANTE_2] No tanto como hoy día, sino el día 29 a los desfiles militares escolares.
+
+47
+00:03:35,600 --> 00:03:36,600
+[HABLANTE_?] ¿No?
+
+48
+00:03:36,600 --> 00:03:39,600
+[HABLANTE_2] Y luego en la casa comer nuestros platos de...
+
+49
+00:03:39,600 --> 00:03:41,700
+[HABLANTE_2] De bandera que es el cuyé.
+
+50
+00:03:41,700 --> 00:03:43,700
+[HABLANTE_2] El cuyé en todos los platos.
+
+51
+00:03:43,700 --> 00:03:45,700
+[HABLANTE_2] O el chirucho, que es famoso ya.
+
+52
+00:03:45,700 --> 00:03:46,700
+[HABLANTE_2] Hasta en el mundo ya.
+
+53
+00:03:46,700 --> 00:03:47,700
+[HABLANTE_2] Eso es.
+
+54
+00:03:47,700 --> 00:03:48,700
+[HABLANTE_2] Nuestras costumbres.
+
+55
+00:03:48,700 --> 00:03:49,700
+[HABLANTE_2] Y bueno, en los campos después también comemos cuyés o asados de cordero.
+
+56
+00:03:49,700 --> 00:03:50,700
+[HABLANTE_?] Y encima su chichito.
+
+57
+00:03:50,700 --> 00:03:51,700
+[HABLANTE_2] [PERSONA_189] son nuestras costumbres acá en esta zona.
+
+58
+00:03:51,700 --> 00:03:52,700
+[HABLANTE_2] Quizás tienes un mensaje final para jóvenes, para personas de...
+
+59
+00:03:52,700 --> 00:03:53,700
+[HABLANTE_2] ¿Parece?
+
+60
+00:03:53,700 --> 00:03:54,700
+[HABLANTE_2] ¿Parece?
+
+61
+00:03:54,700 --> 00:03:55,700
+[HABLANTE_2] ¿Parece?
+
+62
+00:03:55,700 --> 00:03:56,700
+[HABLANTE_2] ¿Parece?
+
+63
+00:03:56,700 --> 00:03:57,700
+[HABLANTE_?] ¿Parece?
+
+64
+00:03:57,700 --> 00:03:58,700
+[HABLANTE_2] ¿Parece?
+
+65
+00:03:58,700 --> 00:03:59,700
+[HABLANTE_?] ¿Parece?
+
+66
+00:03:59,700 --> 00:04:00,700
+[HABLANTE_?] ¿Parece?
+
+67
+00:04:00,700 --> 00:04:01,700
+[HABLANTE_2] ¿Parece?
+
+68
+00:04:01,700 --> 00:04:02,700
+[HABLANTE_?] ¿Parece?
+
+69
+00:04:02,700 --> 00:04:04,020
+[HABLANTE_?] ¿Parece?
+
+70
+00:04:04,020 --> 00:04:05,020
+[HABLANTE_1] ¿Parece?
+
+71
+00:04:05,020 --> 00:04:06,020
+[HABLANTE_1] ¿Parece?
+
+72
+00:04:06,020 --> 00:04:07,020
+[HABLANTE_?] ¿Parece?
+
+73
+00:04:07,020 --> 00:04:10,020
+[HABLANTE_1] ¿Cómo esigeros para jóvenes, para personas de...
+
+74
+00:04:10,020 --> 00:04:12,240
+[HABLANTE_1] Para extranjero sobre Perú.
+
+75
+00:04:12,240 --> 00:04:13,240
+[HABLANTE_?] Si.
+
+76
+00:04:13,240 --> 00:04:14,720
+[HABLANTE_2] Visita el Cusco.
+
+77
+00:04:14,720 --> 00:04:17,560
+[HABLANTE_2] Los jóvenes peruanos estudian mucho más.
+
+78
+00:04:17,560 --> 00:04:18,540
+[HABLANTE_2] Más profundo sobre el Perú.
+
+79
+00:04:18,540 --> 00:04:19,540
+[HABLANTE_2] Qué cosas hemos tenido antes.
+
+80
+00:04:19,540 --> 00:04:22,640
+[HABLANTE_2] Qué cosas hemos tenido durante estos últimos veintiún, treinta años.
+
+81
+00:04:22,640 --> 00:04:30,540
+[HABLANTE_2] Debería ser de repente el joven ejemplo para lo posterior.
+
+82
+00:04:30,540 --> 00:04:35,500
+[HABLANTE_2] Que también tenga actos heroicos.
+
+83
+00:04:35,500 --> 00:04:37,080
+[HABLANTE_2] Así como ser...
+
+84
+00:04:37,080 --> 00:04:37,380
+[HABLANTE_2] ¿AlMonso?
+
+85
+00:04:37,380 --> 00:04:42,760
+[HABLANTE_2] al máximo para su porvenir de él y del Perú.
+
+86
+00:04:42,760 --> 00:04:47,920
+[HABLANTE_1] Ese es el mensaje de nuestro amigo [PERSONA_187], muchas gracias.
