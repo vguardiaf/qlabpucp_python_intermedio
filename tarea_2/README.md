@@ -5,7 +5,7 @@
 Se armaron dos corpus con licencia libre, se pasaron por OCR y reconocimiento de voz, se seudonimizaron, se midió el
 error de varios modelos contra transcripciones manuales y se extrajeron campos estructurados con un LLM local.
 
-**Dashboard:** _enlace de Streamlit Community Cloud pendiente de despliegue_
+**Dashboard:** [modelos-documentos-audio.streamlit.app](https://modelos-documentos-audio.streamlit.app/)
 
 ## Estructura
 
@@ -29,8 +29,8 @@ tarea_2/
 
 ## Corpus y fuentes
 
-Todo sale de Wikimedia Commons. Las fechas de extracción son el **25 y 26 de octubre de 2026**, y el detalle de cada
-archivo está en `datos/fuentes.csv`.
+**Fuentes:** Wikimedia Commons. No se usaron archive.org, OpenSLR 73 ni grabaciones propias. Las fechas de extracción
+son el **25 y 26 de octubre de 2026**, y el detalle de cada archivo está en `datos/fuentes.csv`.
 
 | Corpus | Contenido | Licencias |
 |---|---|---|
