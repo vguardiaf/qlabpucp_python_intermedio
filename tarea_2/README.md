@@ -11,12 +11,14 @@ tarea_2/
 ├── 01_extraccion.ipynb        # recolección, OCR, transcripción, limpieza, seudonimización y EDA
 ├── 02_evaluacion.ipynb        # CER/WER, LLM y comparativa de modelos (Parte 2)
 ├── app.py                     # aplicación Streamlit
-├── requirements.txt           # dependencias exactas, exportadas de uv.lock
-├── pyproject.toml, uv.lock    # entorno uv (grupos docai y audio)
+├── requirements.txt           # dependencias exactas (Python 3.12)
+├── README.md                  # reporte y guía de ejecución
+├── .gitignore                 # deja fuera datos/raw/ y el entorno
 ├── evidencias_ia/             # capturas de la conversación con IA
 ├── datos/
 │   ├── documentos.csv         # 25 documentos con su texto OCR
 │   ├── transcripciones.csv    # 24 clips (66.8 min) con su transcripción diarizada
+│   ├── extraccion_llm.csv     # campos extraídos por el LLM (Parte 2)
 │   ├── fuentes.csv            # URL, licencia, autor, acceso y SHA-256 de los 50 archivos
 │   ├── ejemplos/              # una miniatura por tipo de documento y un SRT diarizado
 │   └── raw/                   # originales, OCR crudo, recortes, WAV y SRT (no se versiona)
@@ -29,12 +31,13 @@ tarea_2/
 
 ```
 cd tarea_2
-uv sync --group docai --group audio
+uv venv --python 3.12
+uv pip install -r requirements.txt
 uv run python -m ipykernel install --user --name tarea2 --display-name "Python (tarea_2)"
-uv run jupyter lab 01_extraccion.ipynb
 ```
 
-Sin uv: `pip install -r requirements.txt` (incluye el índice de PyTorch para CUDA 12.6).
+Después se abre `01_extraccion.ipynb` con el kernel **Python (tarea_2)**. Sin uv también funciona
+`pip install -r requirements.txt` en un entorno con Python 3.12; el archivo ya incluye el índice de PyTorch para CUDA 12.6.
 
 - El ASR necesita una GPU NVIDIA; con 8 GB alcanza para `large-v3` en `float16`. El OCR corre en CPU.
 - La primera ejecución baja unos 185 MB de Commons, más los modelos (Whisper `large-v3`, PP-OCRv5, ECAPA). El OCR toma

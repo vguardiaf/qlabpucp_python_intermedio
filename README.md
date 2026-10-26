@@ -39,8 +39,8 @@ antes de publicar. Detalle en [tarea_2/README.md](tarea_2/README.md).
 
 ```
 cd tarea_2
-uv sync --group docai --group audio
-uv run jupyter lab 01_extraccion.ipynb
+uv venv --python 3.12
+uv pip install -r requirements.txt
 ```
 
 ## Tarea 3 · Incendios en el Perú 2026 (retos A, E y F)
