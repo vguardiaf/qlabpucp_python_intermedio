@@ -188,7 +188,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--borde)
       <p>Acre y Sergipe tienen pobreza parecida (50,5 % y 47,9 %), pero Lula sacó 33,4 % en Acre y 69,5 % en Sergipe. En el Sudeste la relación es débil (0,37) y en el Norte, fuerte (0,68). La geografía y la historia política pesan además del ingreso.</p></div>
   </div>
 
-  <h2>Metodología, fuentes y limitaciones</h2>
+  <h2>Metodología, limitaciones y fuentes</h2>
   <div class="columnas">
     <div>
       <h3>Metodología</h3>
@@ -197,32 +197,36 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--borde)
         <li><strong>Pobreza:</strong> Brasil no tiene una línea oficial de pobreza, según el IBGE, que usa la del Banco Mundial (US$ 6,85 PPC, R$ 665 al mes en 2022). El censo publica el ingreso municipal solo por tramos, así que se usa el más cercano: hasta 1/2 salario mínimo (R$ 606), incluidas las personas sin ingresos. A nivel nacional da 31,8 % frente al 31,6 % que el IBGE reporta para 2022 con la PNAD Contínua. El tramo de 1/4 de salario (R$ 303) no equivale a la extrema pobreza del Banco Mundial (R$ 209).</li>
         <li><strong>Correlación:</strong> Pearson, ponderada por votos válidos. La versión "dentro de cada estado" resta el promedio del estado.</li>
         <li><strong>Quintiles:</strong> cinco grupos de 1.114 municipios, ordenados por pobreza con la medida de 1/2 salario mínimo. Son municipios, no personas: Q5 reúne al 9,9 % de la población. Los grupos no cambian con los filtros, y la pobreza de cada uno está ponderada por población.</li>
-        <li><strong>Validación:</strong> la 2.ª vuelta reproduce los 64.256.232 votos de Lula (51,79 %). La 1.ª vuelta coincide en votos válidos y porcentajes; hay una diferencia menor al 0,003 % frente a la nota del TSE por candidato, sin explicar.</li>
-      </ul>
-      <h3 style="margin-top:16px">Fuentes</h3>
-      <ul>
-        <li><a href="https://dadosabertos.tse.jus.br/dataset/resultados-2026">TSE, Resultados 2026</a>: votación nominal por municipio y zona.</li>
-        <li><a href="https://sidra.ibge.gov.br/tabela/10296">IBGE, Censo 2022, tabla 10296</a>: clases de ingreso domiciliario per cápita.</li>
-        <li><a href="https://github.com/betafcc/Municipios-Brasileiros-TSE">betafcc/Municipios-Brasileiros-TSE</a>: equivalencia de códigos TSE-IBGE.</li>
-        <li><a href="https://github.com/tbrugz/geodata-br">tbrugz/geodata-br</a>: límites municipales.</li>
+        <li><strong>Validación:</strong> la 2.ª vuelta reproduce los 64.256.232 votos de Lula (51,79 %). En la 1.ª vuelta coinciden los votos válidos y los porcentajes. Por candidato hay una diferencia de 235 votos en Flávio y 2.921 en Lula (0,003 % de los válidos) frente a la <a href="https://www.tse.jus.br/comunicacao/noticias/2026/Outubro/flavio-bolsonaro-e-lula-vao-disputar-o-2o-turno-para-a-presidencia-da-republica">nota del TSE</a>. Esa nota se publicó con el 99,99 % de las urnas apuradas, mientras que aquí se usa el archivo final, generado el 1 de noviembre; lo más probable es que la diferencia corresponda a esas últimas urnas.</li>
       </ul>
     </div>
     <div>
       <h3>Limitaciones</h3>
       <ul>
-        <li><strong>Falacia ecológica:</strong> se comparan municipios, no personas. Que un municipio pobre vote por Lula no prueba que sus habitantes pobres lo hayan hecho.</li>
+        <li><strong>Municipios, no personas:</strong> se compara el promedio de cada municipio, no a cada votante. Que un municipio pobre vote por Lula no prueba que sus habitantes pobres lo hayan hecho.</li>
         <li><strong>Correlación no es causalidad:</strong> la pobreza va junto con región, urbanización, escolaridad y programas sociales, que aquí no se controlan.</li>
-        <li><strong>Fechas distintas:</strong> la pobreza es de 2022 y el voto, de 2026.</li>
+        <li><strong>La pobreza es de 2022 y el voto, de 2026:</strong> la cifra tiene cuatro años, pero es la más reciente disponible. El Censo 2022 es la fuente que cubre todos los municipios; las encuestas anuales del IBGE no llegan a ese nivel. Según el IBGE, la pobreza nacional bajó de 31,6 % en 2022 a 23,1 % en 2024, así que los niveles actuales deben ser menores.</li>
         <li><strong>Techo de voto:</strong> donde Lula ya tenía cerca del 70 %, podía subir menos. Esto puede explicar parte del hallazgo 2.</li>
-        <li><strong>Votos excluidos:</strong> los del exterior (702.533) y los de un municipio de Mato Grosso sin código IBGE (3.298).</li>
-        <li><strong>Mapa:</strong> los límites están simplificados, y un municipio grande y poco poblado domina visualmente aunque tenga pocos votos. Seis municipios no tienen polígono en el mapa (Mojuí dos Campos, Nazária, Pescaria Brava, Balneário Rincão, Pinto Bandeira y Paraíso das Águas), pero sí cuentan en todos los cálculos.</li>
+        <li><strong>Votos excluidos:</strong> los del exterior (702.533), que no tienen municipio, y los de Boa Esperança do Norte, Mato Grosso (3.298). Ese municipio se instaló el 1 de enero de 2025 con territorio de Sorriso y Nova Ubiratã, así que no existía en el Censo 2022, no tiene dato de pobreza propio y no figura en la tabla de equivalencias.</li>
+        <li><strong>Mapa:</strong> los límites están simplificados, y un municipio grande y poco poblado domina visualmente aunque tenga pocos votos. Seis municipios no tienen polígono: el archivo de límites trae 5.564 municipios y es anterior a su instalación (Nazária en 2009; Mojuí dos Campos, Pescaria Brava, Balneário Rincão, Pinto Bandeira y Paraíso das Águas en 2013). No se ven en el mapa, pero sí cuentan en todos los cálculos.</li>
       </ul>
     </div>
   </div>
+  <div style="margin-top:16px">
+    <h3>Fuentes</h3>
+    <ul style="margin:8px 0 0;padding-left:20px;font-size:15px;color:var(--texto2)">
+      <li><a href="https://dadosabertos.tse.jus.br/dataset/resultados-2026">TSE, Resultados 2026</a>: votación nominal por municipio y zona.</li>
+      <li><a href="https://sidra.ibge.gov.br/tabela/10296">IBGE, Censo 2022, tabla 10296</a>: clases de ingreso domiciliario per cápita.</li>
+      <li><a href="https://github.com/betafcc/Municipios-Brasileiros-TSE">betafcc/Municipios-Brasileiros-TSE</a>: equivalencia de códigos TSE-IBGE.</li>
+      <li><a href="https://github.com/tbrugz/geodata-br">tbrugz/geodata-br</a>: límites municipales.</li>
+    </ul>
+  </div>
 
   <footer>
-    Datos descargados el 1 de noviembre de 2026. Análisis y tablero desarrollados con asistencia de IA (Claude); las cifras se verificaron contra el TSE.
-    Tarea 3, Python Intermedio.
+    Datos descargados el 1 de noviembre de 2026. Tarea 3, Python Intermedio.<br>
+    <strong>Declaración de uso de inteligencia artificial:</strong> este proyecto se elaboró con el apoyo de Claude (Anthropic), utilizado para la búsqueda de fuentes y la redacción de código y textos.
+    El autor definió la pregunta de investigación, ejecutó el procesamiento de los datos, seleccionó la medición por quintiles de pobreza, revisó los resultados y determinó el contenido y las limitaciones presentadas.
+    Las cifras electorales se contrastaron con los resultados del Tribunal Superior Eleitoral, y la responsabilidad por el análisis y sus conclusiones corresponde al autor.
   </footer>
 </div>
 
