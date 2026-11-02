@@ -10,7 +10,8 @@ Cada tarea está en su propia carpeta y tiene su propio README, entorno y `.giti
 | [Tarea 1](tarea_1/) | ¿Se pueden convertir titulares peruanos en un clasificador de noticias? | Scraping (RSS y HTML), etiquetado con LLM local, fine-tuning de BETO, Streamlit | 383 titulares de El Comercio · F1 macro **0.82** en test (zero-shot: 0.64) [App](https://clasificador-noticias-peru.streamlit.app/) |
 | [Tarea 2](tarea_2/) | ¿Qué tan bien leen y escuchan los modelos abiertos documentos y voces peruanas? | PaddleOCR, EasyOCR, faster-whisper, Qwen3-ASR, SpeechBrain (diarización), spaCy (seudonimización), Qwen2.5 (extracción), Streamlit | Resultados Test: WER: **0.19** \| CER: **0.26** \| Acuerdo LLM-Humano: **7/20** · Fuentes: Wikimedia Commons · [App](https://modelos-documentos-audio.streamlit.app/) |
 | [Tarea 1_clase](tarea_1_clase/) | ¿Es 2026 un año récord de incendios en el Perú? | Focos VIIRS (FIRMS e INPE), geopandas, rasterio, WorldCover, Sentinel-2 (dNBR), Open-Meteo, d3 | Octubre 2026 **+106 %** (récord desde 2012), aunque la temporada va −16 % · [Dashboard](https://claude.ai/artifact/X8oDTiZ6w59yggsH36ptFu) |
-| [Tarea 2_clase](tarea_2_clase/) | ¿Se pueden contar los hallazgos de la tarea 3 en un reel con modelos abiertos? | Qwen3.8 (guion), Qwen3-TTS (voz clonada), Whisper (subtítulos), MusicGen (música), Playwright, Pillow, ffmpeg | Reel vertical de **45 s** narrado con mi voz · [reel.mp4](tarea_4/reel/reel.mp4) |
+| [Tarea 2_clase](tarea_2_clase/) | ¿Se pueden contar los hallazgos de la tarea 1_clase en un reel con modelos abiertos? | Qwen3.8 (guion), Qwen3-TTS (voz clonada), Whisper (subtítulos), MusicGen (música), Playwright, Pillow, ffmpeg | Reel vertical de **45 s** narrado con mi voz · [reel.mp4](tarea_2_clase/reel/reel.mp4) |
+| [Tarea 3](tarea_3/) | ¿Los municipios más pobres de Brasil votaron más por Lula, y explica la pobreza quién remontó entre vueltas? | TSE, Censo 2022 (IBGE), pandas, geopandas, Leaflet, Plotly, Qwen3-TTS (voz clonada), Whisper (subtítulos), ffmpeg | 5.570 municipios · correlación pobreza–voto **0.77** (0.56 dentro de cada estado) · [Dashboard](https://vguardiaf.github.io/qlabpucp_python_intermedio/tarea_3/web/) · [reel.mp4](tarea_3/reel/reel.mp4) · [LinkedIn](https://lnkd.in/p/dpfmRNiu) |
 
 ## Tarea 1 · Noticias peruanas: del titular al clasificador
 
@@ -62,14 +63,14 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-## Tarea 3 · Incendios en el Perú 2026 (retos A, E y F)
+## Tarea 1_clase · Incendios en el Perú 2026 (retos A, E y F)
 
 Compara la temporada 2026 con las de 2012–2025 usando solo S-NPP. Se queda solo con los focos que son
 incendio y descarta fuentes fijas, quemas pequeñas o recurrentes y focos sin vegetación. Mide el área quemada
 con Sentinel-2 y estima el riesgo de la semana con el pronóstico del clima.
 
 ```
-tarea_3/
+tarea_1_clase/
 ├── src/01_descargar.py … 06_dashboard.py   # pipeline en 6 pasos
 ├── src/plantilla_dashboard.html            # dashboard d3 (claro/oscuro)
 ├── data/processed/                          # resultados livianos (JSON, CSV, GeoJSON)
@@ -82,15 +83,15 @@ Los datos crudos (`data/raw/`), los focos limpios y los GeoTIFF de dNBR no se su
 con los pasos 1, 2 y 5.
 
 ```
-cd tarea_3
+cd tarea_1_clase
 conda env create -f environment.yml
 conda activate geo
 python src/01_descargar.py   # y así hasta 06_dashboard.py (~20 min)
 ```
 
-## Tarea 4 · Del tablero al reel
+## Tarea 2_clase · Del tablero al reel
 
-Convierte los hallazgos de la tarea 3 en un reel de 45 s para redes. Hay una persona revisando en el medio:
+Convierte los hallazgos de la tarea 1_clase en un reel de 45 s para redes. Hay una persona revisando en el medio:
 el guion de Qwen se corrigió a mano contra la fuente antes de narrarlo.
 
 1. **Guion**: Qwen3.8 (chat.qwen.ai) resume los hallazgos en 6 escenas, cada una con frase, cifra y etiqueta.
@@ -101,12 +102,44 @@ el guion de Qwen se corrigió a mano contra la fuente antes de narrarlo.
    −14 LUFS, 1080×1920 H.264 + AAC.
 
 ```
-tarea_4/
+tarea_2_clase/
 ├── guion/guion.json   # guion de Qwen corregido, con la lista de correcciones
 └── reel/              # reel.mp4, post.md
 ```
 
 El reel declara la voz y la música generadas con IA, en el video y en `post.md`.
+
+## Tarea 3 · Pobreza y voto en Brasil 2026
+
+Cruza el voto presidencial de los 5.570 municipios de Brasil con su nivel de pobreza y lo presenta en un dashboard
+público y un reel de 64 s narrado con mi voz clonada. Flávio Bolsonaro ganó la primera vuelta, pero Lula ganó la
+segunda con 51,79 %. Detalle, metodología y limitaciones en [tarea_3/README.md](tarea_3/README.md).
+
+1. **A más pobreza, más voto por Lula:** 73,6 % en el quintil de municipios más pobres y 37,9 % en el menos pobre.
+2. **La remontada no vino de los más pobres:** Lula subió 4,7 puntos en el quintil más pobre y 7,7 en el quintil 2.
+3. **La pobreza no lo explica todo:** con pobreza parecida, Lula sacó 69,5 % en Sergipe y 33,4 % en Acre.
+
+```
+tarea_3/
+├── scripts/01_obtener_datos.py … 06_hacer_reel.py   # descarga, limpieza, análisis, dashboard y reel
+├── scripts/reel.py                                  # voz, subtítulos y video (adaptado de la Sesión 15)
+├── datos/procesados/                                # municipios.csv y resultados.json
+├── web/index.html                                   # dashboard (Leaflet y Plotly)
+└── reel/                                            # guion.json, reel.mp4, subtitulos.srt
+```
+
+Los datos crudos (`datos/originales/`) y mi grabación de voz no se suben al repo: los datos se regeneran con
+`01_obtener_datos.py`.
+
+```
+cd tarea_3
+conda activate geo
+python scripts/01_obtener_datos.py   # y así hasta 05_imagenes_reel.py
+conda activate reel
+python scripts/06_hacer_reel.py --voz reel/recursos/mi_voz.mp4 --autor "Nombre Apellido"
+```
+
+El entorno `geo` está en `tarea_1_clase/environment.yml`. El reel declara la voz generada con IA y sus fuentes en el video.
 
 ## Uso de IA
 
