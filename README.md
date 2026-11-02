@@ -11,6 +11,7 @@ Cada tarea está en su propia carpeta y tiene su propio README, entorno y `.giti
 | [Tarea 2](tarea_2/) | ¿Qué tan bien leen y escuchan los modelos abiertos documentos y voces peruanas? | PaddleOCR, EasyOCR, faster-whisper, Qwen3-ASR, SpeechBrain (diarización), spaCy (seudonimización), Qwen2.5 (extracción), Streamlit | Resultados Test: WER: **0.19** \| CER: **0.26** \| Acuerdo LLM-Humano: **7/20** · Fuentes: Wikimedia Commons · [App](https://modelos-documentos-audio.streamlit.app/) |
 | [Tarea 1_clase](tarea_1_clase/) | ¿Es 2026 un año récord de incendios en el Perú? | Focos VIIRS (FIRMS e INPE), geopandas, rasterio, WorldCover, Sentinel-2 (dNBR), Open-Meteo, d3 | Octubre 2026 **+106 %** (récord desde 2012), aunque la temporada va −16 % · [Dashboard](https://claude.ai/artifact/X8oDTiZ6w59yggsH36ptFu) |
 | [Tarea 2_clase](tarea_2_clase/) | ¿Se pueden contar los hallazgos de la tarea 1_clase en un reel con modelos abiertos? | Qwen3.8 (guion), Qwen3-TTS (voz clonada), Whisper (subtítulos), MusicGen (música), Playwright, Pillow, ffmpeg | Reel vertical de **45 s** narrado con mi voz · [reel.mp4](tarea_2_clase/reel/reel.mp4) |
+| [Tarea 4_clase](https://github.com/vguardiaf/enaho-skill) | ¿Pueden unas skills de Claude Code limpiar, graficar y mapear la ENAHO siempre de la misma forma? | Claude Code (skills), ENAHO 2024 (INEI), uv | Pobreza nacional **27.53 %** (referencia: 27.6 %) · 108,664 residentes habituales · [Repositorio](https://github.com/vguardiaf/enaho-skill) |
 | [Tarea 3](tarea_3/) | ¿Los municipios más pobres de Brasil votaron más por Lula, y explica la pobreza quién remontó entre vueltas? | TSE, Censo 2022 (IBGE), pandas, geopandas, Leaflet, Plotly, Qwen3-TTS (voz clonada), Whisper (subtítulos), ffmpeg | 5.570 municipios · correlación pobreza–voto **0.77** (0.56 dentro de cada estado) · [Dashboard](https://vguardiaf.github.io/qlabpucp_python_intermedio/tarea_3/web/) · [reel.mp4](tarea_3/reel/reel.mp4) · [LinkedIn](https://lnkd.in/p/dpfmRNiu) |
 
 ## Tarea 1 · Noticias peruanas: del titular al clasificador
@@ -108,6 +109,25 @@ tarea_2_clase/
 ```
 
 El reel declara la voz y la música generadas con IA, en el video y en `post.md`.
+
+## Tarea 4_clase · Skills para limpiar, graficar y mapear la ENAHO
+
+Proyecto de la sesión 16, en un repositorio aparte: [vguardiaf/enaho-skill](https://github.com/vguardiaf/enaho-skill).
+Tres skills de Claude Code convierten los módulos 34 y 02 de la ENAHO 2024 del INEI en una base de personas, gráficos y
+un mapa de pobreza, siempre de la misma forma.
+
+| Skill | Entra | Sale |
+|---|---|---|
+| `limpiando-enaho` | Zip de los módulos 34 y 02 | `salidas/personas_2024.parquet`, `salidas/validacion.txt` |
+| `graficando-enaho` | La base limpia y un corte: área, sexo o edad | `figuras/*.png` |
+| `mapeando-enaho` | La base limpia y los límites departamentales | `mapas/pobreza_departamento.png` |
+
+La base valida contra las cifras de referencia: pobreza nacional de 27.53 % (27.6 %), pobreza extrema de 5.50 % (5.5 %)
+y 108,664 residentes habituales. Solo 2024 está validado. La comparación con y sin skills está en
+[evaluacion.md](https://github.com/vguardiaf/enaho-skill/blob/main/evaluacion.md).
+
+Las instrucciones de instalación y uso están en el
+[README del repositorio](https://github.com/vguardiaf/enaho-skill#readme).
 
 ## Tarea 3 · Pobreza y voto en Brasil 2026
 
