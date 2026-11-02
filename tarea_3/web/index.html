@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pobreza y voto en Brasil 2026</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+:root {
+  color-scheme: light;
+  --fondo: #f6f5f1; --superficie: #fcfcfb; --borde: #e2e0d9; --tinta: #0b0b0b; --texto2: #52514e; --texto3: #76746e;
+  --lula: #eb6834; --lula-suave: #f4b59c; --flavio: #2a78d6; --viro: #1baf7a; --neutro: #e7e6e1; --vacio: #eeede8;
+  --pobreza-1: #efedfb; --pobreza-2: #4a3aa7; --cambio-1: #e3f5ee; --cambio-2: #0f7a53;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --fondo: #121211; --superficie: #1a1a19; --borde: #33332f; --tinta: #f0efec; --texto2: #c3c2b7; --texto3: #9a998f;
+    --lula: #d95926; --lula-suave: #8a4a31; --flavio: #3987e5; --viro: #199e70; --neutro: #4a4945; --vacio: #262624;
+    --pobreza-1: #2b2850; --pobreza-2: #b9b0f2; --cambio-1: #17362b; --cambio-2: #5fd3a8;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--fondo); color: var(--tinta); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+.envoltura { max-width: 1180px; margin: 0 auto; padding: 0 16px 56px; }
+header { padding: 40px 0 20px; }
+.etiqueta { color: var(--texto2); font-size: 14px; margin: 0 0 8px; }
+h1 { font-size: clamp(30px, 5vw, 46px); line-height: 1.1; margin: 0 0 12px; letter-spacing: -.02em; }
+.pregunta { font-size: clamp(18px, 2.4vw, 22px); margin: 0 0 12px; max-width: 800px; }
+.descripcion { color: var(--texto2); margin: 0; max-width: 800px; }
+h2 { font-size: 24px; line-height: 1.2; margin: 44px 0 12px; }
+h3 { font-size: 17px; line-height: 1.3; margin: 0 0 4px; }
+.nota { color: var(--texto2); font-size: 14px; margin: 0 0 12px; }
+.filtros { position: sticky; top: 0; z-index: 1000; display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end;
+  background: var(--fondo); border-bottom: 1px solid var(--borde); padding: 12px 0; }
+.filtros label { display: flex; flex-direction: column; gap: 3px; font-size: 13px; color: var(--texto2); }
+select, input, button { font: inherit; font-size: 14px; color: var(--tinta); background: var(--superficie); border: 1px solid var(--borde);
+  border-radius: 6px; padding: 7px 9px; min-height: 38px; }
+input { width: 210px; }
+button { cursor: pointer; }
+button:hover { border-color: var(--texto3); }
+.segmentos { display: flex; }
+.segmentos button { border-radius: 0; margin-left: -1px; }
+.segmentos button:first-child { border-radius: 6px 0 0 6px; margin-left: 0; }
+.segmentos button:last-child { border-radius: 0 6px 6px 0; }
+.segmentos button[aria-pressed="true"] { background: var(--tinta); color: var(--superficie); border-color: var(--tinta); }
+:focus-visible { outline: 2px solid var(--flavio); outline-offset: 1px; }
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; }
+.kpi, .panel { background: var(--superficie); border: 1px solid var(--borde); border-radius: 10px; }
+.kpi { padding: 14px 16px; }
+.kpi p { margin: 0; }
+.kpi .nombre { font-size: 14px; color: var(--texto2); }
+.kpi .valor { font-size: 34px; line-height: 1.2; font-weight: 650; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+.kpi .detalle { font-size: 13px; color: var(--texto2); }
+.rejilla { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+.panel { padding: 14px 16px; min-width: 0; }
+.ancho { grid-column: 1 / -1; }
+#mapa { height: 540px; background: transparent; }
+.leyenda { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; font-size: 13px; color: var(--texto2); margin: 8px 0 0; min-height: 22px; }
+.leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+.leyenda i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; }
+.leyenda .gradiente { width: 170px; height: 10px; border-radius: 3px; }
+.mapa-grid { display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 16px; }
+#ficha p { margin: 0 0 8px; font-size: 14px; color: var(--texto2); }
+#ficha strong { color: var(--tinta); font-size: 20px; display: block; font-variant-numeric: tabular-nums; }
+.grafico { height: 380px; }
+#g-estados { height: 620px; }
+.tabla-marco { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+th, td { padding: 7px 8px; border-bottom: 1px solid var(--borde); text-align: right; white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+th { color: var(--texto2); font-weight: 600; }
+.hallazgos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.hallazgos .panel p { margin: 0; font-size: 15px; color: var(--texto2); }
+.hallazgos .panel h3 { margin-bottom: 8px; }
+.columnas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 32px; }
+.columnas ul { margin: 0; padding-left: 20px; }
+.columnas li { margin-bottom: 8px; font-size: 15px; color: var(--texto2); }
+a { color: inherit; }
+footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--borde); color: var(--texto2); font-size: 14px; }
+.leaflet-container { font: inherit; }
+.leaflet-tooltip { font-size: 13px; line-height: 1.4; }
+@media (max-width: 860px) {
+  .kpis { grid-template-columns: repeat(2, 1fr); }
+  .rejilla, .hallazgos, .columnas, .mapa-grid { grid-template-columns: minmax(0, 1fr); }
+  #mapa { height: 400px; }
+  .filtros { position: static; }
+  .filtros label, select, input { width: 100%; }
+  .filtros label { flex: 1 1 45%; }
+}
+</style>
+</head>
+<body>
+<div class="envoltura">
+  <header>
+    <p class="etiqueta">Brasil · 5.570 municipios · Elecciones del 4 y 25 de octubre de 2026 · Censo 2022</p>
+    <h1>Pobreza y voto en Brasil 2026</h1>
+    <p class="pregunta">¿Los municipios más pobres votaron más por Lula, y explica la pobreza quién remontó entre vueltas?</p>
+    <p class="descripcion">Flávio Bolsonaro ganó la primera vuelta 47,03 % a 45,16 %. Tres semanas después, Lula ganó con <span id="oficial"></span>.
+      Este tablero cruza el voto de cada municipio con su nivel de pobreza. Fuentes: Tribunal Superior Eleitoral (TSE) e IBGE.</p>
+  </header>
+
+  <section class="filtros" aria-label="Filtros">
+    <label>Región<select id="region"></select></label>
+    <label>Estado<select id="uf"></select></label>
+    <label>Medida de pobreza
+      <select id="pob">
+        <option value="pobreza_12">Hasta 1/2 salario mínimo</option>
+        <option value="pobreza_14">Hasta 1/4 de salario mínimo</option>
+      </select>
+    </label>
+    <label>Vuelta
+      <span class="segmentos">
+        <button type="button" data-v="1" aria-pressed="false">1.ª</button>
+        <button type="button" data-v="2" aria-pressed="true">2.ª</button>
+      </span>
+    </label>
+    <label>Buscar municipio<input id="buscar" list="lista" placeholder="Ej.: Manari (PE)"></label>
+    <datalist id="lista"></datalist>
+    <button type="button" id="limpiar">Limpiar filtros</button>
+    <button type="button" id="descargar">Descargar CSV</button>
+  </section>
+
+  <section class="kpis" aria-label="Indicadores principales">
+    <div class="kpi"><p class="nombre" id="k1n"></p><p class="valor" id="k1"></p><p class="detalle" id="k1d"></p></div>
+    <div class="kpi"><p class="nombre">Correlación pobreza–voto</p><p class="valor" id="k2"></p><p class="detalle" id="k2d"></p></div>
+    <div class="kpi"><p class="nombre">Brecha de voto: quintil más pobre vs. menos pobre</p><p class="valor" id="k3"></p><p class="detalle" id="k3d"></p></div>
+    <div class="kpi"><p class="nombre">Municipios que cambiaron de ganador</p><p class="valor" id="k4"></p><p class="detalle" id="k4d"></p></div>
+  </section>
+
+  <div class="rejilla">
+    <div class="panel ancho">
+      <div class="mapa-grid">
+        <div>
+          <h3 id="t-mapa"></h3>
+          <p class="nota">Pasa el cursor por un municipio para ver sus datos. Haz clic para fijarlo.</p>
+          <label class="nota">Mostrar en el mapa:
+            <select id="ind">
+              <option value="voto">Voto por Lula</option>
+              <option value="ganador">Ganador y viradas</option>
+              <option value="cambio">Cambio entre vueltas</option>
+              <option value="pobreza">Pobreza</option>
+            </select>
+          </label>
+          <div id="mapa" role="img" aria-label="Mapa municipal de Brasil"></div>
+          <p class="leyenda" id="leyenda"></p>
+        </div>
+        <aside id="ficha" aria-live="polite"></aside>
+      </div>
+    </div>
+    <div class="panel ancho">
+      <h3 id="t-disp"></h3>
+      <p class="nota">Cada punto es un municipio; el tamaño indica sus votos válidos. La línea es la tendencia ponderada por votos.</p>
+      <div id="g-disp" class="grafico"></div>
+    </div>
+    <div class="panel">
+      <h3>Lula gana más cuanto más pobre es el municipio</h3>
+      <p class="nota">% de Lula por quintil de pobreza (Q1 = menos pobre, Q5 = más pobre).</p>
+      <div id="g-quintiles" class="grafico"></div>
+    </div>
+    <div class="panel">
+      <h3>Pero subió más en los municipios intermedios</h3>
+      <p class="nota">Subida de Lula entre vueltas, en puntos porcentuales, por quintil de pobreza.</p>
+      <div id="g-cambio" class="grafico"></div>
+    </div>
+    <div class="panel">
+      <h3>Subida de Lula por estado</h3>
+      <p class="nota">Puntos porcentuales entre la 1.ª y la 2.ª vuelta.</p>
+      <div id="g-estados"></div>
+    </div>
+    <div class="panel">
+      <h3 id="t-tabla"></h3>
+      <p class="nota">Los 18 municipios con más votos de la selección.</p>
+      <div class="tabla-marco"><table>
+        <thead><tr><th scope="col">Municipio</th><th scope="col">Pobreza</th><th scope="col">1.ª</th><th scope="col">2.ª</th><th scope="col">Cambio</th></tr></thead>
+        <tbody id="tabla"></tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <h2>Tres hallazgos</h2>
+  <div class="hallazgos">
+    <div class="panel"><h3>1. A más pobreza, más voto por Lula</h3>
+      <p>En el quintil de municipios más pobres (64,9 % de pobreza) Lula sacó 73,6 %; en el menos pobre (14,5 %), 37,9 %: 35,8 puntos de brecha. La correlación es 0,77 y se mantiene en 0,56 dentro de cada estado, así que no es solo un efecto del Nordeste. Solo 31 de los 1.114 municipios más pobres eligieron a Flávio.</p></div>
+    <div class="panel"><h3>2. La remontada no vino de los más pobres</h3>
+      <p>Lula subió 4,7 puntos en el quintil más pobre y 7,7 en el quintil 2. La correlación entre pobreza y subida es −0,48. De los 214 municipios que cambiaron de ganador, 168 están en los quintiles 2 y 3; 213 viraron a Lula, incluido Río de Janeiro. El Sudeste aportó 4,8 de los 10,3 millones de votos ganados. En los más pobres Lula ya tenía 69 %: le quedaba menos margen.</p></div>
+    <div class="panel"><h3>3. La pobreza no lo explica todo</h3>
+      <p>Acre y Sergipe tienen pobreza parecida (50,5 % y 47,9 %), pero Lula sacó 33,4 % en Acre y 69,5 % en Sergipe. En el Sudeste la relación es débil (0,37) y en el Norte, fuerte (0,68). La geografía y la historia política pesan además del ingreso.</p></div>
+  </div>
+
+  <h2>Metodología, fuentes y limitaciones</h2>
+  <div class="columnas">
+    <div>
+      <h3>Metodología</h3>
+      <ul>
+        <li><strong>Voto:</strong> % de votos válidos por municipio, sumando todas las zonas electorales.</li>
+        <li><strong>Pobreza:</strong> Brasil no tiene una línea oficial de pobreza, según el IBGE, que usa la del Banco Mundial (US$ 6,85 PPC, R$ 665 al mes en 2022). El censo publica el ingreso municipal solo por tramos, así que se usa el más cercano: hasta 1/2 salario mínimo (R$ 606), incluidas las personas sin ingresos. A nivel nacional da 31,8 % frente al 31,6 % que el IBGE reporta para 2022 con la PNAD Contínua. El tramo de 1/4 de salario (R$ 303) no equivale a la extrema pobreza del Banco Mundial (R$ 209).</li>
+        <li><strong>Correlación:</strong> Pearson, ponderada por votos válidos. La versión "dentro de cada estado" resta el promedio del estado.</li>
+        <li><strong>Quintiles:</strong> cinco grupos de 1.114 municipios, ordenados por pobreza con la medida de 1/2 salario mínimo. Son municipios, no personas: Q5 reúne al 9,9 % de la población. Los grupos no cambian con los filtros, y la pobreza de cada uno está ponderada por población.</li>
+        <li><strong>Validación:</strong> la 2.ª vuelta reproduce los 64.256.232 votos de Lula (51,79 %). La 1.ª vuelta coincide en votos válidos y porcentajes; hay una diferencia menor al 0,003 % frente a la nota del TSE por candidato, sin explicar.</li>
+      </ul>
+      <h3 style="margin-top:16px">Fuentes</h3>
+      <ul>
+        <li><a href="https://dadosabertos.tse.jus.br/dataset/resultados-2026">TSE, Resultados 2026</a>: votación nominal por municipio y zona.</li>
+        <li><a href="https://sidra.ibge.gov.br/tabela/10296">IBGE, Censo 2022, tabla 10296</a>: clases de ingreso domiciliario per cápita.</li>
+        <li><a href="https://github.com/betafcc/Municipios-Brasileiros-TSE">betafcc/Municipios-Brasileiros-TSE</a>: equivalencia de códigos TSE-IBGE.</li>
+        <li><a href="https://github.com/tbrugz/geodata-br">tbrugz/geodata-br</a>: límites municipales.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Limitaciones</h3>
+      <ul>
+        <li><strong>Falacia ecológica:</strong> se comparan municipios, no personas. Que un municipio pobre vote por Lula no prueba que sus habitantes pobres lo hayan hecho.</li>
+        <li><strong>Correlación no es causalidad:</strong> la pobreza va junto con región, urbanización, escolaridad y programas sociales, que aquí no se controlan.</li>
+        <li><strong>Fechas distintas:</strong> la pobreza es de 2022 y el voto, de 2026.</li>
+        <li><strong>Techo de voto:</strong> donde Lula ya tenía cerca del 70 %, podía subir menos. Esto puede explicar parte del hallazgo 2.</li>
+        <li><strong>Votos excluidos:</strong> los del exterior (702.533) y los de un municipio de Mato Grosso sin código IBGE (3.298).</li>
+        <li><strong>Mapa:</strong> los límites están simplificados, y un municipio grande y poco poblado domina visualmente aunque tenga pocos votos. Seis municipios no tienen polígono en el mapa (Mojuí dos Campos, Nazária, Pescaria Brava, Balneário Rincão, Pinto Bandeira y Paraíso das Águas), pero sí cuentan en todos los cálculos.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    Datos descargados el 1 de noviembre de 2026. Análisis y tablero desarrollados con asistencia de IA (Claude); las cifras se verificaron contra el TSE.
+    Tarea 3, Python Intermedio.
+  </footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.35.2/plotly.min.js"></script>
+<script src="data/datos.js"></script>
+<script>
+const ESTADOS = { AC: "Acre", AL: "Alagoas", AM: "Amazonas", AP: "Amapá", BA: "Bahía", CE: "Ceará", DF: "Distrito Federal",
+  ES: "Espírito Santo", GO: "Goiás", MA: "Maranhão", MG: "Minas Gerais", MS: "Mato Grosso do Sul", MT: "Mato Grosso", PA: "Pará",
+  PB: "Paraíba", PE: "Pernambuco", PI: "Piauí", PR: "Paraná", RJ: "Río de Janeiro", RN: "Rio Grande do Norte", RO: "Rondônia",
+  RR: "Roraima", RS: "Rio Grande do Sul", SC: "Santa Catarina", SE: "Sergipe", SP: "São Paulo", TO: "Tocantins" };
+const filas = DATOS.filas.map(f => {
+  const o = Object.fromEntries(DATOS.campos.map((c, i) => [c, f[i]]));
+  o.quintil = Math.ceil(o.decil / 2); // Cada quintil junta dos deciles: 1 = menos pobre, 5 = más pobre
+  return o;
+});
+const porId = new Map(filas.map(f => [f.ibge, f]));
+const porEtiqueta = new Map(filas.map(f => [`${f.municipio} (${f.uf})`, f]));
+const REGIONES = ["Norte", "Nordeste", "Centro-Oeste", "Sudeste", "Sur"];
+const estado = { region: "", uf: "", pob: "pobreza_12", v: 2, ind: "voto", sel: null };
+const $ = id => document.getElementById(id);
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const num = (x, d = 1) => x.toLocaleString("pt-BR", { minimumFractionDigits: d, maximumFractionDigits: d });
+const ent = x => Math.round(x).toLocaleString("pt-BR");
+const signo = (x, d = 1) => (x > 0 ? "+" : x < 0 ? "−" : "") + num(Math.abs(x), d);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const colY = () => estado.v === 2 ? "pct_lula_t2" : "pct_lula_t1";
+const ganador = f => estado.v === 2 ? f.ganador_t2 : f.ganador_t1;
+const pasa = f => (!estado.region || f.region === estado.region) && (!estado.uf || f.uf === estado.uf);
+const seleccion = () => filas.filter(pasa);
+const nombrePob = () => estado.pob === "pobreza_12" ? "hasta 1/2 salario mínimo" : "hasta 1/4 de salario mínimo";
+
+function mezclar(a, b, t) {
+  const h = c => [1, 3, 5].map(i => parseInt(c.slice(i, i + 2), 16));
+  const [x, y] = [h(a), h(b)];
+  return "#" + x.map((v, i) => Math.round(v + (y[i] - v) * t).toString(16).padStart(2, "0")).join("");
+}
+const acotar = (x, a, b) => Math.min(1, Math.max(0, (x - a) / (b - a)));
+
+function colorVoto(p) {
+  return p >= 50 ? mezclar(css("--neutro"), css("--lula"), acotar(p, 50, 80)) : mezclar(css("--neutro"), css("--flavio"), acotar(50 - p, 0, 30));
+}
+function colorDe(f) {
+  if (estado.ind === "voto") return colorVoto(f[colY()]);
+  if (estado.ind === "pobreza") return mezclar(css("--pobreza-1"), css("--pobreza-2"), acotar(f[estado.pob], 0, 80));
+  if (estado.ind === "cambio") return mezclar(css("--cambio-1"), css("--cambio-2"), acotar(f.cambio_lula, 0, 14));
+  if (f.ganador_t1 !== f.ganador_t2) return css("--viro");
+  return f.ganador_t2 === "Lula" ? css("--lula") : css("--flavio");
+}
+
+// Mapa
+const mapa = L.map("mapa", { preferCanvas: true, scrollWheelZoom: false, zoomSnap: 0.25, attributionControl: false });
+function estilo(ft) {
+  const f = porId.get(ft.id);
+  const c = f && pasa(f) ? colorDe(f) : css("--vacio");
+  return { fillColor: c, color: c, fillOpacity: 1, opacity: 1, weight: 0.4 };
+}
+function textoTooltip(f) {
+  return `<strong>${esc(f.municipio)} (${esc(f.uf)})</strong><br>Pobreza: ${num(f[estado.pob])} %<br>` +
+    `Lula: ${num(f.pct_lula_t1)} % → ${num(f.pct_lula_t2)} %`;
+}
+const capas = new Map();
+const capa = L.geoJSON(DATOS.geo, {
+  style: estilo,
+  onEachFeature(ft, l) {
+    capas.set(ft.id, l);
+    const f = porId.get(ft.id);
+    if (!f) return;
+    l.bindTooltip(() => textoTooltip(f), { sticky: true });
+    l.on("click", () => elegir(f, false));
+  },
+}).addTo(mapa);
+
+function encuadrar() {
+  const b = L.latLngBounds([]);
+  seleccion().forEach(f => { const l = capas.get(f.ibge); if (l) b.extend(l.getBounds()); });
+  if (b.isValid()) mapa.fitBounds(b, { padding: [8, 8] });
+}
+function dibujarMapa() {
+  capa.setStyle(estilo);
+  const l = estado.sel && capas.get(estado.sel.ibge);
+  if (l) { l.setStyle({ color: css("--tinta"), weight: 2 }); l.bringToFront(); }
+  const leyenda = $("leyenda");
+  const item = (c, t) => `<span><i style="background:${c}"></i>${t}</span>`;
+  const gradiente = (a, m, b, i, f) => `<span>${i}<i class="gradiente" style="background:linear-gradient(90deg,${a},${m},${b})"></i>${f}</span>`;
+  if (estado.ind === "voto") {
+    $("t-mapa").textContent = `Voto por Lula, ${estado.v}.ª vuelta`;
+    leyenda.innerHTML = gradiente(css("--flavio"), css("--neutro"), css("--lula"), "20 %", "80 %") + "<span>Gris = 50 %</span>";
+  } else if (estado.ind === "ganador") {
+    $("t-mapa").textContent = "Ganador en la 2.ª vuelta y municipios que cambiaron";
+    leyenda.innerHTML = item(css("--lula"), "Lula en ambas") + item(css("--flavio"), "Flávio en ambas") + item(css("--viro"), "Cambió de ganador");
+  } else if (estado.ind === "cambio") {
+    $("t-mapa").textContent = "Subida de Lula entre vueltas";
+    leyenda.innerHTML = gradiente(css("--cambio-1"), mezclar(css("--cambio-1"), css("--cambio-2"), .5), css("--cambio-2"), "0 o menos", "14 puntos o más");
+  } else {
+    $("t-mapa").textContent = `Pobreza: ${nombrePob()}`;
+    leyenda.innerHTML = gradiente(css("--pobreza-1"), mezclar(css("--pobreza-1"), css("--pobreza-2"), .5), css("--pobreza-2"), "0 %", "80 %");
+  }
+}
+
+function ficha() {
+  const f = estado.sel, c = $("ficha");
+  if (!f) {
+    c.innerHTML = `<h3>Elige un municipio</h3><p>Haz clic en el mapa, en un punto del gráfico o usa el buscador para ver su ficha.</p>`;
+    return;
+  }
+  c.innerHTML = `<h3>${esc(f.municipio)} (${esc(f.uf)})</h3><p>${esc(f.region)} · quintil de pobreza ${f.quintil} de 5</p>
+    <p>Pobreza (1/2 salario)<strong>${num(f.pobreza_12)} %</strong></p>
+    <p>Lula, 1.ª vuelta<strong>${num(f.pct_lula_t1)} %</strong></p>
+    <p>Lula, 2.ª vuelta<strong>${num(f.pct_lula_t2)} %</strong></p>
+    <p>Cambio<strong>${signo(f.cambio_lula)} puntos</strong></p>
+    <p>Ganador<strong>${esc(f.ganador_t1)} → ${esc(f.ganador_t2)}</strong></p>
+    <p>Votos válidos, 2.ª vuelta<strong>${ent(f.validos_t2)}</strong></p>`;
+}
+
+// Cálculos sobre la selección
+function ajuste(s, x, y) {
+  const W = s.reduce((a, f) => a + f.validos_t2, 0);
+  if (s.length < 3 || !W) return null;
+  const mx = s.reduce((a, f) => a + f[x] * f.validos_t2, 0) / W, my = s.reduce((a, f) => a + f[y] * f.validos_t2, 0) / W;
+  let sxy = 0, sxx = 0, syy = 0;
+  s.forEach(f => {
+    const dx = f[x] - mx, dy = f[y] - my;
+    sxy += f.validos_t2 * dx * dy; sxx += f.validos_t2 * dx * dx; syy += f.validos_t2 * dy * dy;
+  });
+  return { r: sxy / Math.sqrt(sxx * syy), pendiente: sxy / sxx, mx, my };
+}
+function porQuintil(s) {
+  const g = Array.from({ length: 5 }, () => ({ l1: 0, v1: 0, l2: 0, v2: 0, pobres: 0, pob: 0 }));
+  s.forEach(f => {
+    const d = g[f.quintil - 1];
+    d.l1 += f.lula_t1; d.v1 += f.validos_t1; d.l2 += f.lula_t2; d.v2 += f.validos_t2;
+    d.pobres += f[estado.pob] * f.poblacion; d.pob += f.poblacion;
+  });
+  return g.map(d => d.v1 ? { t1: 100 * d.l1 / d.v1, t2: 100 * d.l2 / d.v2, c: 100 * d.l2 / d.v2 - 100 * d.l1 / d.v1, pobreza: d.pobres / d.pob } : null);
+}
+
+function kpis(s) {
+  const lula = s.reduce((a, f) => a + (estado.v === 2 ? f.lula_t2 : f.lula_t1), 0);
+  const val = s.reduce((a, f) => a + (estado.v === 2 ? f.validos_t2 : f.validos_t1), 0);
+  $("k1n").textContent = `Voto por Lula, ${estado.v}.ª vuelta`;
+  $("k1").textContent = `${num(100 * lula / val)} %`;
+  $("k1d").textContent = `${ent(s.length)} municipios, sin voto exterior`;
+  const a = ajuste(s, estado.pob, colY());
+  $("k2").textContent = a ? num(a.r, 2) : "n/d";
+  $("k2d").textContent = `Ponderada por votos; pobreza ${nombrePob()}`;
+  const d = porQuintil(s), ini = d[0], fin = d[4], y = estado.v === 2 ? "t2" : "t1";
+  $("k3").textContent = ini && fin ? `${signo(fin[y] - ini[y])} pts` : "n/d";
+  $("k3d").innerHTML = ini && fin
+    ? `Más pobre: ${num(fin.pobreza)} % de pobreza, Lula ${num(fin[y])} %<br>Menos pobre: ${num(ini.pobreza)} % de pobreza, Lula ${num(ini[y])} %`
+    : "La selección no incluye ambos quintiles";
+  const cambio = s.filter(f => f.ganador_t1 !== f.ganador_t2);
+  const aLula = cambio.filter(f => f.ganador_t2 === "Lula").length;
+  $("k4").textContent = ent(cambio.length);
+  $("k4d").textContent = `${ent(aLula)} a Lula y ${ent(cambio.length - aLula)} a Flávio`;
+}
+
+// Gráficos
+function base(extra) {
+  const tinta = css("--texto2"), red = css("--borde");
+  const eje = () => ({ gridcolor: red, zerolinecolor: red, linecolor: red, tickfont: { color: tinta, size: 12 }, title: { font: { color: tinta, size: 13 } }, fixedrange: true });
+  return Object.assign({
+    paper_bgcolor: "rgba(0,0,0,0)", plot_bgcolor: "rgba(0,0,0,0)", margin: { l: 48, r: 12, t: 8, b: 48 }, barcornerradius: 4,
+    font: { family: "system-ui, sans-serif", color: tinta }, separators: ",.", hoverlabel: { font: { size: 13 } },
+    legend: { orientation: "h", y: 1.1, x: 0, font: { size: 13, color: tinta } },
+    xaxis: eje(), yaxis: eje(),
+  }, extra);
+}
+const opciones = { displayModeBar: false, responsive: true };
+
+function dispersion(s) {
+  const y = colY(), x = estado.pob;
+  $("t-disp").textContent = `Pobreza y voto por Lula, ${estado.v}.ª vuelta`;
+  const traza = (nombre, color) => {
+    const g = s.filter(f => ganador(f) === nombre);
+    return {
+      type: "scattergl", mode: "markers", name: `Ganó ${nombre}`, x: g.map(f => f[x]), y: g.map(f => f[y]),
+      customdata: g.map(f => [f.ibge, `${f.municipio} (${f.uf})`, ent(f.validos_t2)]),
+      marker: { color, opacity: .6, size: g.map(f => Math.min(26, 5 + Math.sqrt(f.validos_t2) / 45)) },
+      hovertemplate: "<b>%{customdata[1]}</b><br>Pobreza: %{x:.1f} %<br>Lula: %{y:.1f} %<br>Votos: %{customdata[2]}<extra></extra>",
+    };
+  };
+  const trazas = [traza("Lula", css("--lula")), traza("Flávio", css("--flavio"))];
+  const a = ajuste(s, x, y);
+  if (a) {
+    const xs = s.map(f => f[x]), ini = Math.min(...xs), fin = Math.max(...xs);
+    trazas.push({ type: "scatter", mode: "lines", name: "Tendencia", x: [ini, fin],
+      y: [ini, fin].map(v => a.my + a.pendiente * (v - a.mx)), line: { color: css("--tinta"), width: 2 }, hoverinfo: "skip" });
+  }
+  if (estado.sel && pasa(estado.sel)) {
+    const f = estado.sel;
+    trazas.push({ type: "scatter", mode: "markers+text", name: f.municipio, showlegend: false, x: [f[x]], y: [f[y]], text: [f.municipio],
+      textposition: "top center", textfont: { color: css("--tinta"), size: 13 }, hoverinfo: "skip",
+      marker: { size: 13, color: "rgba(0,0,0,0)", line: { color: css("--tinta"), width: 2 } } });
+  }
+  const b = base({});
+  b.xaxis.title.text = `% de pobreza (${nombrePob()})`;
+  b.yaxis.title.text = "% Lula";
+  b.yaxis.range = [0, 100];
+  Plotly.react("g-disp", trazas, b, opciones);
+}
+
+function barras(s) {
+  const d = porQuintil(s);
+  const etiquetas = d.map((v, i) => `Q${i + 1}<br>${v ? `${num(v.pobreza)} % pobres` : "sin datos"}`);
+  const valor = k => d.map(v => v ? v[k] : null);
+  const margen = { l: 48, r: 12, t: 8, b: 76 };
+  const b1 = base({ barmode: "group", bargap: .25, bargroupgap: .08, margin: margen });
+  b1.xaxis.title.text = "Quintil de pobreza"; b1.xaxis.type = "category";
+  b1.yaxis.title.text = "% Lula"; b1.yaxis.range = [0, 100];
+  Plotly.react("g-quintiles", [
+    { type: "bar", name: "1.ª vuelta", x: etiquetas, y: valor("t1"), marker: { color: css("--lula-suave") }, hovertemplate: "%{x}<br>1.ª vuelta: %{y:.1f} %<extra></extra>" },
+    { type: "bar", name: "2.ª vuelta", x: etiquetas, y: valor("t2"), marker: { color: css("--lula") }, hovertemplate: "%{x}<br>2.ª vuelta: %{y:.1f} %<extra></extra>" },
+  ], b1, opciones);
+
+  const b2 = base({ bargap: .3, showlegend: false, margin: margen });
+  b2.xaxis.title.text = "Quintil de pobreza"; b2.xaxis.type = "category";
+  b2.yaxis.title.text = "Puntos";
+  Plotly.react("g-cambio", [{ type: "bar", x: etiquetas, y: valor("c"), marker: { color: css("--cambio-2") },
+    text: valor("c").map(v => v === null ? "" : num(v)), textposition: "outside", cliponaxis: false,
+    textfont: { color: css("--texto2"), size: 12 }, hovertemplate: "%{x}<br>Subida: %{y:.1f} puntos<extra></extra>" }], b2, opciones);
+
+  const grupo = {};
+  filas.filter(f => !estado.region || f.region === estado.region).forEach(f => {
+    const e = grupo[f.uf] ||= { uf: f.uf, l1: 0, v1: 0, l2: 0, v2: 0 };
+    e.l1 += f.lula_t1; e.v1 += f.validos_t1; e.l2 += f.lula_t2; e.v2 += f.validos_t2;
+  });
+  const estados = Object.values(grupo).map(e => ({ uf: e.uf, c: 100 * e.l2 / e.v2 - 100 * e.l1 / e.v1 })).sort((a, b) => a.c - b.c);
+  const b3 = base({ bargap: .3, showlegend: false, margin: { l: 136, r: 40, t: 8, b: 36 } });
+  b3.xaxis.title.text = "Puntos";
+  Plotly.react("g-estados", [{ type: "bar", orientation: "h", x: estados.map(e => e.c), y: estados.map(e => ESTADOS[e.uf]),
+    marker: { color: estados.map(e => !estado.uf || e.uf === estado.uf ? css("--cambio-2") : css("--neutro")) },
+    text: estados.map(e => num(e.c)), textposition: "outside", cliponaxis: false, textfont: { color: css("--texto2"), size: 12 },
+    hovertemplate: "%{y}: %{x:.1f} puntos<extra></extra>" }], b3, opciones);
+}
+
+function tabla(s) {
+  const zona = ESTADOS[estado.uf] || estado.region || "Brasil";
+  $("t-tabla").textContent = `Mayores municipios: ${zona}`;
+  const top = [...s].sort((a, b) => b.validos_t2 - a.validos_t2).slice(0, 18);
+  $("tabla").innerHTML = top.map(f => `<tr><td>${esc(f.municipio)} (${esc(f.uf)})</td><td>${num(f[estado.pob])} %</td>
+    <td>${num(f.pct_lula_t1)} %</td><td>${num(f.pct_lula_t2)} %</td><td>${signo(f.cambio_lula)}</td></tr>`).join("");
+}
+
+function actualizar() {
+  const s = seleccion();
+  kpis(s); dibujarMapa(); dispersion(s); barras(s); tabla(s); ficha();
+}
+function elegir(f, encuadre) {
+  estado.sel = f;
+  $("buscar").value = f ? `${f.municipio} (${f.uf})` : "";
+  actualizar();
+  const l = f && capas.get(f.ibge);
+  if (l && encuadre) mapa.fitBounds(l.getBounds(), { maxZoom: 8 });
+}
+
+// Controles
+function opcionesUf() {
+  const ufs = [...new Set(filas.filter(f => !estado.region || f.region === estado.region).map(f => f.uf))]
+    .sort((a, b) => ESTADOS[a].localeCompare(ESTADOS[b], "es"));
+  $("uf").innerHTML = `<option value="">Todos</option>` + ufs.map(u => `<option value="${u}">${ESTADOS[u]}</option>`).join("");
+  $("uf").value = estado.uf;
+}
+$("region").innerHTML = `<option value="">Todas</option>` + REGIONES.map(r => `<option value="${r}">${r}</option>`).join("");
+$("lista").innerHTML = [...porEtiqueta.keys()].sort().map(k => `<option value="${esc(k)}"></option>`).join("");
+$("oficial").textContent = `${num(DATOS.oficial.lula_t2, 2)} %`;
+opcionesUf();
+
+$("region").addEventListener("change", e => {
+  estado.region = e.target.value; estado.uf = ""; estado.sel = null; $("buscar").value = "";
+  opcionesUf(); actualizar(); encuadrar();
+});
+$("uf").addEventListener("change", e => {
+  estado.uf = e.target.value; estado.sel = null; $("buscar").value = "";
+  actualizar(); encuadrar();
+});
+$("pob").addEventListener("change", e => { estado.pob = e.target.value; actualizar(); });
+$("ind").addEventListener("change", e => { estado.ind = e.target.value; dibujarMapa(); });
+document.querySelectorAll(".segmentos button").forEach(b => b.addEventListener("click", () => {
+  estado.v = Number(b.dataset.v);
+  document.querySelectorAll(".segmentos button").forEach(o => o.setAttribute("aria-pressed", String(o === b)));
+  actualizar();
+}));
+$("buscar").addEventListener("change", e => {
+  const f = porEtiqueta.get(e.target.value);
+  if (!f) return;
+  estado.region = ""; estado.uf = ""; $("region").value = ""; opcionesUf();
+  elegir(f, true);
+});
+$("limpiar").addEventListener("click", () => {
+  Object.assign(estado, { region: "", uf: "", sel: null });
+  $("region").value = ""; $("buscar").value = ""; opcionesUf();
+  actualizar(); encuadrar();
+});
+$("descargar").addEventListener("click", () => {
+  const cols = ["ibge", "municipio", "uf", "region", "pobreza_12", "pobreza_14", "pct_lula_t1", "pct_lula_t2", "cambio_lula", "ganador_t1", "ganador_t2", "quintil", "validos_t2"];
+  const celda = v => `"${String(v).replace(/"/g, '""')}"`;
+  const csv = [cols.join(","), ...seleccion().map(f => cols.map(c => celda(f[c])).join(","))].join("\n");
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8" }));
+  a.download = `brasil2026_${estado.uf || estado.region || "nacional"}.csv`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", actualizar);
+
+actualizar();
+encuadrar();
+$("g-disp").on("plotly_click", e => {
+  const c = e.points[0].customdata;
+  if (c) elegir(porId.get(c[0]), true);
+});
+</script>
+</body>
+</html>

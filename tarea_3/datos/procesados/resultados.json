@@ -1,0 +1,551 @@
+{
+  "nacional": {
+    "municipios": 5570,
+    "poblacion": 202044533.0,
+    "pobreza": 31.781113820090344,
+    "lula_t1": 45.15665251147512,
+    "lula_t2": 51.779580164550325,
+    "cambio": 6.622927653075202,
+    "votos_ganados": 10333746.0
+  },
+  "correlaciones": {
+    "pct_lula_t1": {
+      "ponderada": 0.79897146678178,
+      "sin_ponderar": 0.851215889034835,
+      "spearman": 0.8346362592042197,
+      "dentro_estado": 0.6131999970477117
+    },
+    "pct_lula_t2": {
+      "ponderada": 0.7673896327589798,
+      "sin_ponderar": 0.8417658594116382,
+      "spearman": 0.8289163761485335,
+      "dentro_estado": 0.5584090515945754
+    },
+    "cambio_lula": {
+      "ponderada": -0.4769680138121614,
+      "sin_ponderar": -0.2680377217350123,
+      "spearman": -0.245321880428659,
+      "dentro_estado": -0.38368652199576453
+    }
+  },
+  "correlaciones_pobreza_14": {
+    "pct_lula_t1": {
+      "ponderada": 0.7727172323187992,
+      "sin_ponderar": 0.7958684129331729,
+      "spearman": 0.8039012116824692,
+      "dentro_estado": 0.6149158530233306
+    },
+    "pct_lula_t2": {
+      "ponderada": 0.7421697019128906,
+      "sin_ponderar": 0.7830205255613376,
+      "spearman": 0.7989332733998465,
+      "dentro_estado": 0.5655658628534609
+    },
+    "cambio_lula": {
+      "ponderada": -0.4613257698442188,
+      "sin_ponderar": -0.2941705666706716,
+      "spearman": -0.2518522261599371,
+      "dentro_estado": -0.34584300045559957
+    }
+  },
+  "correlacion_por_region": {
+    "Centro-Oeste": 0.4714567805361898,
+    "Nordeste": 0.637883179362255,
+    "Norte": 0.6790314751415282,
+    "Sudeste": 0.367005477040089,
+    "Sur": 0.5738186154521663
+  },
+  "deciles": [
+    {
+      "decil": 1,
+      "municipios": 557.0,
+      "poblacion": 17175185.0,
+      "pobreza": 10.791295697833823,
+      "lula_t1": 26.784051733940238,
+      "lula_t2": 32.8319203226603,
+      "cambio": 6.047868588720064,
+      "votos_ganados": 733989.0
+    },
+    {
+      "decil": 2,
+      "municipios": 557.0,
+      "poblacion": 29822482.0,
+      "pobreza": 16.6895263781197,
+      "lula_t1": 33.74167371718785,
+      "lula_t2": 40.86139285258047,
+      "cambio": 7.1197191353926215,
+      "votos_ganados": 1521126.0
+    },
+    {
+      "decil": 3,
+      "municipios": 557.0,
+      "poblacion": 35832859.0,
+      "pobreza": 20.862446393127602,
+      "lula_t1": 39.334227262663305,
+      "lula_t2": 47.19102385893215,
+      "cambio": 7.856796596268843,
+      "votos_ganados": 2098539.0
+    },
+    {
+      "decil": 4,
+      "municipios": 557.0,
+      "poblacion": 21604834.0,
+      "pobreza": 25.258319503866588,
+      "lula_t1": 38.79689088585669,
+      "lula_t2": 46.11312754129523,
+      "cambio": 7.316236655438537,
+      "votos_ganados": 1159034.0
+    },
+    {
+      "decil": 5,
+      "municipios": 557.0,
+      "poblacion": 16555783.0,
+      "pobreza": 29.48279160218517,
+      "lula_t1": 40.8323053654644,
+      "lula_t2": 48.189879455707384,
+      "cambio": 7.357574090242984,
+      "votos_ganados": 897558.0
+    },
+    {
+      "decil": 6,
+      "municipios": 557.0,
+      "poblacion": 31934051.0,
+      "pobreza": 37.43438312915577,
+      "lula_t1": 48.20643340390745,
+      "lula_t2": 55.11500841989618,
+      "cambio": 6.908575015988731,
+      "votos_ganados": 1688804.0
+    },
+    {
+      "decil": 7,
+      "municipios": 557.0,
+      "poblacion": 18310420.0,
+      "pobreza": 47.36807238719811,
+      "lula_t1": 56.23997951983817,
+      "lula_t2": 62.28165788520907,
+      "cambio": 6.041678365370899,
+      "votos_ganados": 922512.0
+    },
+    {
+      "decil": 8,
+      "municipios": 557.0,
+      "poblacion": 10760945.0,
+      "pobreza": 55.07346241431398,
+      "lula_t1": 65.45164927927344,
+      "lula_t2": 70.4861831065905,
+      "cambio": 5.034533827317063,
+      "votos_ganados": 539941.0
+    },
+    {
+      "decil": 9,
+      "municipios": 557.0,
+      "poblacion": 9775807.0,
+      "pobreza": 60.53216885316987,
+      "lula_t1": 68.38922747456694,
+      "lula_t2": 73.17182607572872,
+      "cambio": 4.78259860116178,
+      "votos_ganados": 450348.0
+    },
+    {
+      "decil": 10,
+      "municipios": 557.0,
+      "poblacion": 10272167.0,
+      "pobreza": 69.08055525187626,
+      "lula_t1": 69.46162930573439,
+      "lula_t2": 74.13360002197092,
+      "cambio": 4.67197071623653,
+      "votos_ganados": 321895.0
+    }
+  ],
+  "quintiles": [
+    {
+      "quintil": 1,
+      "municipios": 1114.0,
+      "poblacion": 46997667.0,
+      "pobreza": 14.53403208291169,
+      "lula_t1": 31.11535975961757,
+      "lula_t2": 37.85236815211866,
+      "cambio": 6.737008392501089,
+      "votos_ganados": 2255115.0
+    },
+    {
+      "quintil": 2,
+      "municipios": 1114.0,
+      "poblacion": 57437693.0,
+      "pobreza": 22.515926954099637,
+      "lula_t1": 39.13520276413098,
+      "lula_t2": 46.79192131388323,
+      "cambio": 7.656718549752249,
+      "votos_ganados": 3257573.0
+    },
+    {
+      "quintil": 3,
+      "municipios": 1114.0,
+      "poblacion": 48489834.0,
+      "pobreza": 34.71948780026758,
+      "lula_t1": 45.711132086450235,
+      "lula_t2": 52.76635593827257,
+      "cambio": 7.055223851822333,
+      "votos_ganados": 2586362.0
+    },
+    {
+      "quintil": 4,
+      "municipios": 1114.0,
+      "poblacion": 29071365.0,
+      "pobreza": 50.22027001484106,
+      "lula_t1": 59.75636553754124,
+      "lula_t2": 65.42090390328211,
+      "cambio": 5.664538365740867,
+      "votos_ganados": 1462453.0
+    },
+    {
+      "quintil": 5,
+      "municipios": 1114.0,
+      "poblacion": 20047974.0,
+      "pobreza": 64.91218514150108,
+      "lula_t1": 68.92856055494654,
+      "lula_t2": 73.64909662041269,
+      "cambio": 4.720536065466149,
+      "votos_ganados": 772243.0
+    }
+  ],
+  "regiones": [
+    {
+      "region": "Centro-Oeste",
+      "municipios": 467.0,
+      "poblacion": 16185246.0,
+      "pobreza": 23.294295310679864,
+      "lula_t1": 32.62059674432618,
+      "lula_t2": 39.99120251694576,
+      "cambio": 7.370605772619584,
+      "votos_ganados": 770695.0
+    },
+    {
+      "region": "Nordeste",
+      "municipios": 1794.0,
+      "poblacion": 54469212.0,
+      "pobreza": 49.464407526218665,
+      "lula_t1": 63.77334499700516,
+      "lula_t2": 69.36850075444359,
+      "cambio": 5.595155757438427,
+      "votos_ganados": 2955848.0
+    },
+    {
+      "region": "Norte",
+      "municipios": 450.0,
+      "poblacion": 17267583.0,
+      "pobreza": 49.07714646572134,
+      "lula_t1": 44.64915800865589,
+      "lula_t2": 50.00536913526469,
+      "cambio": 5.356211126608798,
+      "votos_ganados": 474024.0
+    },
+    {
+      "region": "Sudeste",
+      "municipios": 1668.0,
+      "poblacion": 84343847.0,
+      "pobreza": 23.974277578303962,
+      "lula_t1": 39.68113340685237,
+      "lula_t2": 47.24189575645974,
+      "cambio": 7.560762349607373,
+      "votos_ganados": 4800333.0
+    },
+    {
+      "region": "Sur",
+      "municipios": 1191.0,
+      "poblacion": 29778645.0,
+      "pobreza": 16.131110062261058,
+      "lula_t1": 31.278004585707183,
+      "lula_t2": 37.423861364356206,
+      "cambio": 6.145856778649023,
+      "votos_ganados": 1332846.0
+    }
+  ],
+  "estados": [
+    {
+      "uf": "AC",
+      "municipios": 22.0,
+      "poblacion": 823774.0,
+      "pobreza": 50.54128923709658,
+      "lula_t1": 28.731564428033582,
+      "lula_t2": 33.434437380271525,
+      "cambio": 4.702872952237943,
+      "votos_ganados": 9743.0
+    },
+    {
+      "uf": "AL",
+      "municipios": 102.0,
+      "poblacion": 3115663.0,
+      "pobreza": 51.25358551293898,
+      "lula_t1": 54.72995113411947,
+      "lula_t2": 60.76785636144986,
+      "cambio": 6.037905227330391,
+      "votos_ganados": 157162.0
+    },
+    {
+      "uf": "AM",
+      "municipios": 62.0,
+      "poblacion": 3928168.0,
+      "pobreza": 55.710575515100174,
+      "lula_t1": 48.23170470475128,
+      "lula_t2": 54.02017323675123,
+      "cambio": 5.788468531999953,
+      "votos_ganados": 98787.0
+    },
+    {
+      "uf": "AP",
+      "municipios": 16.0,
+      "poblacion": 729203.0,
+      "pobreza": 47.219635684439034,
+      "lula_t1": 45.71352972305521,
+      "lula_t2": 52.880879988236465,
+      "cambio": 7.1673502651812555,
+      "votos_ganados": 10465.0
+    },
+    {
+      "uf": "BA",
+      "municipios": 417.0,
+      "poblacion": 14099290.0,
+      "pobreza": 48.02843263738812,
+      "lula_t1": 66.17498166826338,
+      "lula_t2": 71.31344238449469,
+      "cambio": 5.138460716231307,
+      "votos_ganados": 820487.0
+    },
+    {
+      "uf": "CE",
+      "municipios": 184.0,
+      "poblacion": 8766509.0,
+      "pobreza": 49.45190839363765,
+      "lula_t1": 63.285523515018475,
+      "lula_t2": 68.9275671399798,
+      "cambio": 5.642043624961325,
+      "votos_ganados": 480861.0
+    },
+    {
+      "uf": "DF",
+      "municipios": 1.0,
+      "poblacion": 2791115.0,
+      "pobreza": 20.26079183408781,
+      "lula_t1": 38.11055681156674,
+      "lula_t2": 45.724708909631495,
+      "cambio": 7.614152098064757,
+      "votos_ganados": 149597.0
+    },
+    {
+      "uf": "ES",
+      "municipios": 78.0,
+      "poblacion": 3807452.0,
+      "pobreza": 26.85698992397015,
+      "lula_t1": 37.76093054083422,
+      "lula_t2": 43.63067822818422,
+      "cambio": 5.8697476873500065,
+      "votos_ganados": 151937.0
+    },
+    {
+      "uf": "GO",
+      "municipios": 246.0,
+      "poblacion": 7022230.0,
+      "pobreza": 24.63305815958748,
+      "lula_t1": 31.058907373721304,
+      "lula_t2": 40.3357866375774,
+      "cambio": 9.276879263856095,
+      "votos_ganados": 396675.0
+    },
+    {
+      "uf": "MA",
+      "municipios": 217.0,
+      "poblacion": 6757786.0,
+      "pobreza": 54.836628446062065,
+      "lula_t1": 63.990525725487906,
+      "lula_t2": 69.54161777939787,
+      "cambio": 5.5510920539099615,
+      "votos_ganados": 241930.0
+    },
+    {
+      "uf": "MG",
+      "municipios": 853.0,
+      "poblacion": 20435412.0,
+      "pobreza": 26.40447376348468,
+      "lula_t1": 43.32693872489977,
+      "lula_t2": 50.43402683340632,
+      "cambio": 7.107088108506552,
+      "votos_ganados": 1162163.0
+    },
+    {
+      "uf": "MS",
+      "municipios": 79.0,
+      "poblacion": 2736680.0,
+      "pobreza": 24.924653229460514,
+      "lula_t1": 34.68178420402099,
+      "lula_t2": 40.399970453443295,
+      "cambio": 5.718186249422303,
+      "votos_ganados": 112118.0
+    },
+    {
+      "uf": "MT",
+      "municipios": 141.0,
+      "poblacion": 3635221.0,
+      "pobreza": 21.809925723910595,
+      "lula_t1": 29.190356861643565,
+      "lula_t2": 33.9487200582967,
+      "cambio": 4.758363196653136,
+      "votos_ganados": 112305.0
+    },
+    {
+      "uf": "PA",
+      "municipios": 144.0,
+      "poblacion": 8084879.0,
+      "pobreza": 51.77723748246572,
+      "lula_t1": 49.91057277020019,
+      "lula_t2": 55.01503050166357,
+      "cambio": 5.104457731463377,
+      "votos_ganados": 263212.0
+    },
+    {
+      "uf": "PB",
+      "municipios": 223.0,
+      "poblacion": 3958797.0,
+      "pobreza": 48.218410794996565,
+      "lula_t1": 61.30795979070288,
+      "lula_t2": 67.46436708734619,
+      "cambio": 6.156407296643309,
+      "votos_ganados": 252932.0
+    },
+    {
+      "uf": "PE",
+      "municipios": 185.0,
+      "poblacion": 9016408.0,
+      "pobreza": 49.58606575922474,
+      "lula_t1": 63.45224447631564,
+      "lula_t2": 69.20111992016224,
+      "cambio": 5.7488754438466,
+      "votos_ganados": 563542.0
+    },
+    {
+      "uf": "PI",
+      "municipios": 224.0,
+      "poblacion": 3261377.0,
+      "pobreza": 49.507738602436945,
+      "lula_t1": 70.98929646653876,
+      "lula_t2": 75.87634550665918,
+      "cambio": 4.8870490401204165,
+      "votos_ganados": 130279.0
+    },
+    {
+      "uf": "PR",
+      "municipios": 399.0,
+      "poblacion": 11390784.0,
+      "pobreza": 17.800223408678455,
+      "lula_t1": 31.20001797959468,
+      "lula_t2": 37.42378915675651,
+      "cambio": 6.223771177161833,
+      "votos_ganados": 511907.0
+    },
+    {
+      "uf": "RJ",
+      "municipios": 92.0,
+      "poblacion": 15985230.0,
+      "pobreza": 30.57545621802126,
+      "lula_t1": 39.414506334247626,
+      "lula_t2": 46.89945765677401,
+      "cambio": 7.484951322526385,
+      "votos_ganados": 872372.0
+    },
+    {
+      "uf": "RN",
+      "municipios": 167.0,
+      "poblacion": 3292177.0,
+      "pobreza": 45.077861852506715,
+      "lula_t1": 59.75019040512612,
+      "lula_t2": 65.7179318504606,
+      "cambio": 5.967741445334482,
+      "votos_ganados": 175633.0
+    },
+    {
+      "uf": "RO",
+      "municipios": 52.0,
+      "poblacion": 1573226.0,
+      "pobreza": 31.993559730134134,
+      "lula_t1": 25.89377300350495,
+      "lula_t2": 30.39197876196807,
+      "cambio": 4.4982057584631185,
+      "votos_ganados": 43779.0
+    },
+    {
+      "uf": "RR",
+      "municipios": 15.0,
+      "poblacion": 622423.0,
+      "pobreza": 49.30521526357477,
+      "lula_t1": 22.860126864181602,
+      "lula_t2": 27.54304373639422,
+      "cambio": 4.682916872212619,
+      "votos_ganados": 9085.0
+    },
+    {
+      "uf": "RS",
+      "municipios": 497.0,
+      "poblacion": 10815943.0,
+      "pobreza": 17.5883230893506,
+      "lula_t1": 35.72695882919101,
+      "lula_t2": 42.16422622717359,
+      "cambio": 6.4372673979825805,
+      "votos_ganados": 529793.0
+    },
+    {
+      "uf": "SC",
+      "municipios": 295.0,
+      "poblacion": 7571918.0,
+      "pobreza": 11.538661670662572,
+      "lula_t1": 25.04318583606779,
+      "lula_t2": 30.57775497290544,
+      "cambio": 5.53456913683765,
+      "votos_ganados": 291146.0
+    },
+    {
+      "uf": "SE",
+      "municipios": 75.0,
+      "poblacion": 2201205.0,
+      "pobreza": 47.925568041141105,
+      "lula_t1": 62.748974487536984,
+      "lula_t2": 69.53349807894432,
+      "cambio": 6.784523591407336,
+      "votos_ganados": 133022.0
+    },
+    {
+      "uf": "SP",
+      "municipios": 645.0,
+      "poblacion": 44115753.0,
+      "pobreza": 20.20784049634152,
+      "lula_t1": 38.200509843126305,
+      "lula_t2": 46.15380221195065,
+      "cambio": 7.953292368824343,
+      "votos_ganados": 2613861.0
+    },
+    {
+      "uf": "TO",
+      "municipios": 139.0,
+      "poblacion": 1505910.0,
+      "pobreza": 35.12919098750921,
+      "lula_t1": 43.42095788368386,
+      "lula_t2": 48.63022270820022,
+      "cambio": 5.20926482451636,
+      "votos_ganados": 38953.0
+    }
+  ],
+  "ganadores_t2": {
+    "Lula": 2875,
+    "Flávio": 2695
+  },
+  "viraron_a_lula": 213,
+  "viraron_a_flavio": 1,
+  "pobreza_mediana": {
+    "viraron_a_lula": 27.14134181914612,
+    "viraron_a_flavio": 31.844174410293068,
+    "sin_cambio": 33.744656170089584
+  },
+  "pobres_con_flavio": 17,
+  "ricos_con_lula": 10,
+  "umbral_pobres": 63.278535532035384,
+  "umbral_ricos": 14.198180179567032
+}
