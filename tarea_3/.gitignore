@@ -1,3 +1,5 @@
 datos/originales/
 __pycache__/
 *.pyc
+reel/reel.wav
+reel/recursos/mi_voz.*
