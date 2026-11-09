@@ -161,6 +161,40 @@ python scripts/06_hacer_reel.py --voz reel/recursos/mi_voz.mp4 --autor "Nombre A
 
 El entorno `geo` está en `tarea_1_clase/environment.yml`. El reel declara la voz generada con IA y sus fuentes en el video.
 
+## Tarea 4 · Agente de investigación: MCP del BCRP y Skills de la ENAHO
+
+Un agente sobre Claude Code que responde preguntas socioeconómicas del Perú con datos oficiales. Las series del BCRP
+salen de un servidor MCP propio y los microdatos de la ENAHO 2024 se procesan con Skills, así que ninguna cifra sale
+de la memoria del modelo. Detalle, metodología y limitaciones en [tarea_4/README.md](tarea_4/README.md).
+
+1. **Más profundización, menos pobreza:** entre los 25 departamentos, el crédito y los depósitos por habitante se
+   asocian con menos pobreza (Spearman −0.57). Sin Lima ni Callao, donde se registra el crédito de las empresas con
+   sede en la capital, la asociación llega a −0.74. Es una asociación, no un efecto causal.
+2. **Datos validados:** pobreza nacional de 27.58 % (INEI: 27.6 %), 108,664 residentes habituales y 25/25
+   departamentos dentro de ±0.1 de la referencia de la Sesión 16.
+3. **Las herramientas importan:** con las mismas 10 preguntas, Claude Code acierta 1/10 sin MCP ni Skills y 10/10 con ellas.
+
+```
+tarea_4/
+├── mcp/server.py, test_server.py      # MCP del BCRP: 5 herramientas, recurso y prompt; 10 pruebas
+├── .claude/skills/                    # limpiando, graficando, mapeando y cruzando (BCRP + ENAHO)
+├── salidas/ · figuras/ · mapas/       # validación, indicadores, cruce y gráficos
+├── informes/informe_final.md          # informe escrito por el agente y verificación independiente
+├── evaluacion/                        # 10 preguntas, resultados A/B y comparación
+└── evidencias_ia/                     # registros de Claude Code y bitácora de uso de IA
+```
+
+Los microdatos de la ENAHO (`datos/`) no se suben al repo: se descargan del INEI con los enlaces del README de la tarea.
+
+```
+cd tarea_4
+uv sync
+uv run pytest -q                       # 10 passed
+uv run .claude/skills/limpiando-enaho/scripts/limpiar.py --anio 2024
+```
+
+El uso de IA está documentado en la [bitácora](tarea_4/evidencias_ia/bitacora_uso_ia.md) y en los registros de `tarea_4/evidencias_ia/`.
+
 ## Uso de IA
 
 Usé Claude como apoyo para escribir código. Revisé y validé cada resultado antes de aceptarlo.
