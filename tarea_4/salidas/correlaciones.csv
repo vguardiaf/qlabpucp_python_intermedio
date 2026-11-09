@@ -1,0 +1,7 @@
+muestra,indicador,n,spearman,pearson_log
+25 departamentos,credito_pc,25,-0.618,-0.505
+25 departamentos,depositos_pc,25,-0.552,-0.485
+25 departamentos,profundizacion_pc,25,-0.565,-0.498
+sin Lima ni Callao (23),credito_pc,23,-0.73,-0.685
+sin Lima ni Callao (23),depositos_pc,23,-0.726,-0.665
+sin Lima ni Callao (23),profundizacion_pc,23,-0.741,-0.685

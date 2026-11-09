@@ -1,0 +1,21 @@
+[project]
+name = "tarea-4-agente-socioeconomico"
+version = "0.1.0"
+description = "Agente de investigación socioeconómica: MCP del BCRP y Skills de la ENAHO 2024"
+requires-python = ">=3.12"
+dependencies = [
+    "fastmcp>=4,<5",
+    "geopandas>=1.2.0",
+    "httpx",
+    "matplotlib>=3.11.2",
+    "pandas>=3.1.0",
+    "pyarrow>=26.0.0",
+]
+
+[dependency-groups]
+dev = ["pytest"]
+
+[tool.pytest.ini_options]
+# Las pruebas de la sesión 04 hacen "from server import mcp"; server.py vive en mcp/.
+pythonpath = ["mcp"]
+testpaths = ["mcp"]

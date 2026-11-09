@@ -1,0 +1,20 @@
+# Microdatos y descargas (se bajan siguiendo el README)
+datos/
+mcp/datos/
+*.parquet
+*.zip
+*.dta
+
+# Entorno y temporales
+.venv/
+__pycache__/
+.pytest_cache/
+
+# Logs crudos de claude -p (pesados; las evidencias limpias van en evidencias_ia/)
+evaluacion/logs/
+
+# Configuración local de Claude Code
+.claude/settings.local.json
+
+# Respaldo local de evidencias generadas (no se publica)
+_respaldo_evidencias/

@@ -1,0 +1,24 @@
+Validacion ENAHO 2024
+
+OK    hogares en la sumaria: 33,691.00 (esperado 33,691, tolerancia 0)
+OK    filas del modulo 02: 117,721.00 (esperado 117,721, tolerancia 0)
+OK    residentes habituales: 108,664.00 (esperado 108,664, tolerancia 0)
+OK    personas duplicadas tras la union m:1: 0.00 (esperado 0, tolerancia 0)
+OK    codigos territoriales distintos (ubigeo[:2]): 25.00 (esperado 25, tolerancia 0)
+OK    codigos territoriales = 01..25 con nombre: True (esperado True)
+OK    factores facpob07 positivos y sin vacios: True (esperado True)
+OK    poblacion expandida con facpob07 (millones): 34.15 (esperado 34.0, tolerancia 1.0)
+OK    pobreza, sumaria con factor07 x mieperho: 27.58 (esperado 27.6, tolerancia 0.1)
+OK    pobreza, personas con facpob07: 27.53 (esperado 27.6, tolerancia 0.1)
+OK    pobreza extrema, sumaria con factor07 x mieperho: 5.50 (esperado 5.5, tolerancia 0.1)
+OK    pobreza urbana, sumaria con factor07 x mieperho: 24.81 (esperado 24.8, tolerancia 0.1)
+OK    pobreza rural, sumaria con factor07 x mieperho: 39.30 (esperado 39.3, tolerancia 0.1)
+
+Informativo, personas con facpob07:
+extrema: 5.50 %
+urbano: 24.74 %
+rural: 39.44 %
+Lima Metropolitana (dominio 8): 28.03 %
+proporcion simple sin ponderar (NO se usa): 25.61 % frente a 27.53 % ponderada
+
+RESULTADO: OK

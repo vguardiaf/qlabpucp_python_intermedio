@@ -1,0 +1,21 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.9, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\<usuario>\Documents\GitHub\qlabpucp_python_intermedio\tarea_4\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\<usuario>\Documents\GitHub\qlabpucp_python_intermedio\tarea_4
+configfile: pyproject.toml
+testpaths: mcp
+plugins: anyio-4.16.0, platformdirs-4.14.5
+collecting ... collected 10 items
+
+mcp/test_server.py::test_buscar_encuentra_el_ipc PASSED                  [ 10%]
+mcp/test_server.py::test_cuatro_herramientas_como_minimo PASSED          [ 20%]
+mcp/test_server.py::test_serie_mensual PASSED                            [ 30%]
+mcp/test_server.py::test_serie_diaria PASSED                             [ 40%]
+mcp/test_server.py::test_resumen_sin_cuentas_a_mano PASSED               [ 50%]
+mcp/test_server.py::test_codigo_inexistente_da_un_error_claro PASSED     [ 60%]
+mcp/test_server.py::test_un_recurso PASSED                               [ 70%]
+mcp/test_server.py::test_un_prompt PASSED                                [ 80%]
+mcp/test_server.py::test_graficar_serie_guarda_png_con_codigo_periodo_y_fuente PASSED [ 90%]
+mcp/test_server.py::test_graficar_serie_no_inventa_si_no_hay_datos PASSED [100%]
+
+============================= 10 passed in 7.93s ==============================

@@ -1,0 +1,23 @@
+Eres un agente de investigación socioeconómica del Perú. Trabaja desde esta carpeta (tarea_4).
+
+Pregunta de investigación: ¿La profundización financiera departamental, entendida como créditos y depósitos, se asocia con menores niveles de pobreza en 2024?
+
+Pasos:
+1. Escribe primero un plan breve de análisis (fuentes, indicadores, herramientas).
+2. BCRP, con el servidor MCP bcrp:
+   - Usa buscar_series para ubicar el grupo de crédito directo por departamentos y el de depósitos por departamentos.
+   - Usa datos_departamentales para traer los 25 departamentos de 2024: grupo "credito directo departamentos" con etiqueta "credito", y grupo "depositos sistema financiero departamentos" con etiqueta "depositos".
+   - Usa resumen y graficar_serie sobre la serie anual del total nacional de crédito por departamentos (RD16202DA, 2015-2024) para dar el contexto temporal, con un título analítico.
+3. ENAHO 2024, con las skills del proyecto: limpiando-enaho (base validada), mapeando-enaho (mapa de pobreza departamental) y cruzando-bcrp-enaho (crédito y depósitos por habitante frente a la pobreza, correlaciones y gráfico de dispersión).
+4. Contrasta con las fuentes oficiales: la pobreza nacional con el 27.6 % del INEI (salidas/validacion.txt) y el mapa con la referencia de la Sesión 16 (salidas/comparacion_mapa.csv).
+5. Escribe informes/informe_final.md en español con estas secciones:
+   1. Pregunta de investigación (tema, objetivo y delimitación).
+   2. Fuentes y metodología (datos, cómo se mide la profundización, ponderación, correlación de Spearman).
+   3. Resultados: al menos 3 hallazgos numerados. Cada cifra con su fuente: código de serie y periodo para el BCRP; archivo de salidas/ para la ENAHO y el cruce.
+   4. Visualizaciones: inserta con rutas relativas (../figuras/..., ../mapas/...) el gráfico del BCRP, el gráfico de dispersión y el mapa departamental, cada uno con una frase de lectura.
+   5. Interpretación de los principales patrones.
+   6. Limitaciones: solo 25 departamentos y un año; el crédito se registra donde se otorga (Lima concentra empresas con sede en la capital); falacia ecológica; posible causalidad inversa (más ingresos atraen más crédito); asociaciones, no causas.
+   7. Reproducibilidad: scripts, comandos, códigos de series y archivos usados.
+   Al final agrega una tabla "Registro de herramientas usadas" con cada herramienta MCP y cada skill que usaste y para qué.
+
+Reglas: ninguna cifra puede salir de tu memoria; todas deben venir de una herramienta MCP o de un archivo de salidas/. Si una herramienta falla o no encuentra datos, dilo en el informe en lugar de inventar. No presentes asociaciones como causas.

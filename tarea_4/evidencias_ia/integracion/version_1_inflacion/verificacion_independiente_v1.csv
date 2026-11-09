@@ -1,0 +1,15 @@
+fuente,indicador,valor_independiente,periodo,procedimiento
+BCRP,"Inflación Lima 12 meses, máximo 2020-2024 (%)",8.81,2022-06,https://estadisticas.bcrp.gob.pe/estadisticas/series/api/PN01273PM/json/2020-1/2024-12
+BCRP,"Inflación Lima 12 meses, dic-2024 (%)",1.97,2024-12,https://estadisticas.bcrp.gob.pe/estadisticas/series/api/PN01273PM/json/2020-1/2024-12
+BCRP,"Inflación Lima 12 meses, dic-2020 (%)",1.97,2020-12,https://estadisticas.bcrp.gob.pe/estadisticas/series/api/PN01273PM/json/2020-1/2024-12
+BCRP,Meses 2020-2024 con inflación > 3 %,34.0,2020-01 a 2024-12,https://estadisticas.bcrp.gob.pe/estadisticas/series/api/PN01273PM/json/2020-1/2024-12
+BCRP,"PBI real, variación 2020 (%)",-10.93,2020,https://estadisticas.bcrp.gob.pe/estadisticas/series/api/PM04923AA/json/2020/2024
+BCRP,"PBI real, variación 2021 (%)",13.42,2021,https://estadisticas.bcrp.gob.pe/estadisticas/series/api/PM04923AA/json/2020/2024
+BCRP,"PBI real, variación 2022 (%)",2.82,2022,https://estadisticas.bcrp.gob.pe/estadisticas/series/api/PM04923AA/json/2020/2024
+BCRP,"PBI real, variación 2023 (%)",-0.35,2023,https://estadisticas.bcrp.gob.pe/estadisticas/series/api/PM04923AA/json/2020/2024
+BCRP,"PBI real, variación 2024 (%)",3.52,2024,https://estadisticas.bcrp.gob.pe/estadisticas/series/api/PM04923AA/json/2020/2024
+ENAHO,Pobreza monetaria nacional 2024 (%),27.58,2024,"datos/966-Modulo34.zip (sumaria-2024.dta), factor07 x mieperho"
+ENAHO,Pobreza urbana 2024 (%),24.81,2024,"datos/966-Modulo34.zip (sumaria-2024.dta), factor07 x mieperho"
+ENAHO,Pobreza rural 2024 (%),39.3,2024,"datos/966-Modulo34.zip (sumaria-2024.dta), factor07 x mieperho"
+ENAHO,Pobreza Cajamarca 2024 (%),45.01,2024,"datos/966-Modulo34.zip (sumaria-2024.dta), factor07 x mieperho"
+ENAHO,Pobreza Ica 2024 (%),6.01,2024,"datos/966-Modulo34.zip (sumaria-2024.dta), factor07 x mieperho"
